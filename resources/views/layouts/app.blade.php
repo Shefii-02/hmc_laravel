@@ -47,7 +47,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<style>
+    .page-breadcrumb .breadcrumb-item a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
 
+</style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-136HE3VF4V"></script>
     <script>
@@ -144,17 +150,17 @@
 
                         <!-- start menu item list -->
                         <ul class="elementskit-navbar-nav nav-alignment-dynamic">
-                            <li><a href="index">Home</a></li>
+                            <li><a href="/">Home</a></li>
 
                             <li class="elementskit-dropdown-has">
-                                <a href="About-us">About Us</a>
+                                <a href="about-us">About Us</a>
                                 <ul class="elementskit-dropdown elementskit-submenu-panel">
-                                    <li><a href="About-us">About Us</a></li>
-                                    <li><a href="Our-doctors">Our Doctors</a></li>
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="our-doctors">Our Doctors</a></li>
                                     <!--<li><a href="Careers">Careers</a></li>-->
-                                    <li><a href="Contact-us">Contact Us</a></li>
-                                    <li><a href="lab-result">Lab Result</a></li>
-                                    <li><a href="book-now">Book an Appointment</a></li>
+                                    <li><a href="contact-us">Contact Us</a></li>
+                                    {{-- <li><a href="lab-result">Lab Result</a></li>
+                                    <li><a href="book-now">Book an Appointment</a></li> --}}
                                 </ul>
                             </li>
 
@@ -173,56 +179,49 @@
                                         }
                                     }
                                 </style>
-                                <ul class="elementskit-dropdown elementskit-submenu-panel row aa">
+                                <ul class="elementskit-dropdown departments elementskit-submenu-panel d-flex gap-3 flex-wrap">
 
-                                    <li><a href="General-Medicine">General Medicine</a></li>
-                                    <li><a href="Orthopaedics">Orthopaedics</a></li>
-                                    <li><a href="Pediatrics">Pediatrics</a></li>
-                                    <li><a href="ENT">ENT</a></li>
-                                    <li><a href="Diabetes">Diabetes</a></li>
-                                    <li><a href="Gastroenterogy">Gastroenterogy</a></li>
-                                    <li><a href="Dermatology"> Dermatology</a></li>
-                                    <li><a href="Pulmonology"> Pulmonology</a></li>
-                                    <li><a href="Gynecology">Gynecology</a></li>
+                                    <li><a href="/department/general-Medicine">General Medicine</a></li>
+                                    <li><a href="/department/orthopaedics">Orthopaedics</a></li>
+                                    <li><a href="/department/pediatrics">Pediatrics</a></li>
+                                    <li><a href="/department/ENT">ENT</a></li>
+                                    <li><a href="/department/diabetes">Diabetes</a></li>
+                                    <li><a href="/department/gastroenterogy">Gastroenterogy</a></li>
+                                    <li><a href="/department/dermatology"> Dermatology</a></li>
+                                    <li><a href="/department/pulmonology"> Pulmonology</a></li>
+                                    <li><a href="/department/gynecology">Gynecology</a></li>
 
-
-
-                                    <li><a href="General-Surgery">General Surgery</a></li>
-                                    <li><a href="Dental">Dental</a></li>
-                                    <li><a href="Ophthalmology">Ophthalmology</a></li>
-                                    <li><a href="Nephrology">Nephrology</a></li>
-                                    <li><a href="Urology">Urology</a></li>
-                                    <li><a href="Cardiac">Cardiac</a></li>
-                                    <li><a href="Psychiatry">Psychiatry</a></li>
-                                    <li><a href="Homeopathy">Homeopathy</a></li>
-                                    <li><a href="Ayurvedic">Ayurvedic</a></li>
-                                    <li><a href="Neurology">Neurology</a></li>
+                                    <li><a href="/department/general-Surgery">General Surgery</a></li>
+                                    <li><a href="/department/dental">Dental</a></li>
+                                    <li><a href="/department/ophthalmology">Ophthalmology</a></li>
+                                    <li><a href="/department/nephrology">Nephrology</a></li>
+                                    <li><a href="/department/urology">Urology</a></li>
+                                    <li><a href="/department/cardiac">Cardiac</a></li>
+                                    <li><a href="/department/psychiatry">Psychiatry</a></li>
+                                    <li><a href="/department/homeopathy">Homeopathy</a></li>
+                                    <li><a href="/department/ayurvedic">Ayurvedic</a></li>
+                                    <li><a href="/department/neurology">Neurology</a></li>
                                 </ul>
-
-
-
-
                             </li>
-
 
                             <li class="elementskit-dropdown-has"><a href="#">Services</a>
-                                <ul class="elementskit-dropdown elementskit-submenu-panel row aa">
-                                    <li><a href="Laboratory">Laboratory</a></li>
-                                    <li><a href="Pharmacy">Pharmacy</a></li>
-                                    <li><a href="Endoscopy">Endoscopy</a></li>
-                                    <li><a href="Ecg">Ecg</a></li>
-                                    <li><a href="Emergency-Care">Emergency Care</a></li>
-                                    <li><a href="Telemedicine">Telemedicine</a></li>
-                                    <li><a href="Medicine-at-Door">Medicine at Door</a></li>
-                                    <li><a href="Home-Care">Home Care</a></li>
-                                    <li><a href="X-ray">X-ray</a></li>
-                                    <li><a href="Ultra-Sound-Scanning">Ultra Sound Scanning</a></li>
-                                    <li><a href="Physiotherapy">Physiotherapy</a></li>
-                                    <li><a href="Operation-Theater">Operation Theater</a></li>
+                                <ul class="elementskit-dropdown services elementskit-submenu-panel d-flex gap-3 flex-wrap">
+                                    <li><a href="/service/laboratory">Laboratory</a></li>
+                                    <li><a href="/service/pharmacy">Pharmacy</a></li>
+                                    <li><a href="/service/endoscopy">Endoscopy</a></li>
+                                    <li><a href="/service/ecg">Ecg</a></li>
+                                    <li><a href="/service/emergency-Care">Emergency Care</a></li>
+                                    <li><a href="/service/telemedicine">Telemedicine</a></li>
+                                    <li><a href="/service/medicine-at-Door">Medicine at Door</a></li>
+                                    <li><a href="/service/home-Care">Home Care</a></li>
+                                    <li><a href="/service/x-ray">X-ray</a></li>
+                                    <li><a href="/service/ultra-Sound-Scanning">Ultra Sound Scanning</a></li>
+                                    <li><a href="/service/physiotherapy">Physiotherapy</a></li>
+                                    <li><a href="/service/operation-Theater">Operation Theater</a></li>
                                 </ul>
                             </li>
-                            <li><a href="Gallery">Gallery</a></li>
-                            <li><a href="News-Event">News &amp; Events</a></li>
+                            <li><a href="/gallery">Gallery</a></li>
+                            <li><a href="/blog">Blog</a></li>
                             <li class="d-block d-lg-none text-center">
                                 <a href="/arogyam-njagalilude">
 
@@ -239,7 +238,7 @@
                                 <a href="#" class="elementskit-nav-logo">Menu</a>
                             </h1>
                             <button class="elementskit-menu-close elementskit-menu-toggler" type="button"><i
-                                    class="icon icon-cross"></i></button>
+                                    class="bi bi-x-lg"></i></button>
                         </div>
                         <!-- end menu logo and close button t-->
 
@@ -445,7 +444,7 @@
         margin-top: 16px;
     }
 </style>
-<a href="https://api.whatsapp.com/send?phone=+917592997991&text=Hai,%20I%20would%20like%20to%20know%20more%20about%20your%20services&lang=en"
+<a href="https://api.whatsapp.com/send?phone=+917592997991&text=Hai,%20I%20would%20like%20to%20know%20more%20about%20your%20/services&lang=en"
     class="float" target="_blank">
     <i class="bi bi-whatsapp my-float"></i>
 </a>
