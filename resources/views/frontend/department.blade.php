@@ -52,6 +52,8 @@
         </div>
         <div class="row g-4">
             @foreach($doctors ?? [] as $doctor)
+
+
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="single-team-member card border-0 shadow-sm">
                         <div class="team-member-bg" style="background-image: url('{{ $doctor['doct_img'] }}'); height:300px; background-size:cover; background-position:center;"></div>
