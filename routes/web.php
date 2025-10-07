@@ -29,10 +29,10 @@ Route::get('/department/{slug}', function ($slug) {
     $slug = strtolower($slug); // lowercase the slug
 
     $departments = [
-        'general-medicine' => ['title' => 'General Medicine', 'image' => 'https://via.placeholder.com/800x400', 'description'=>'...'],
-        'dermatology' => ['title'=>'Dermatology', 'image'=>'...', 'description'=>'...'],
-        'orthopaedics' => ['title'=>'Orthopaedics', 'image'=>'...', 'description'=>'...'],
-        'ent' => ['title'=>'ENT', 'image'=>'...', 'description'=>'...'],
+        'general-medicine' => ['title' => 'General Medicine', 'image' => 'https://via.placeholder.com/800x400', 'description' => '...'],
+        'dermatology' => ['title' => 'Dermatology', 'image' => '...', 'description' => '...'],
+        'orthopaedics' => ['title' => 'Orthopaedics', 'image' => '...', 'description' => '...'],
+        'ent' => ['title' => 'ENT', 'image' => '...', 'description' => '...'],
         // ... add all departments in lowercase keys
     ];
 
@@ -85,15 +85,50 @@ Route::get('/service/{slug}', function ($slug) {
     $service = $services[$slug];
 
     // List of all services for sidebar or menu
-    $serviceList = array_map(fn($key, $val) => ['slug'=>$key, 'title'=>$val['title']], array_keys($services), $services);
+    $serviceList = array_map(fn($key, $val) => ['slug' => $key, 'title' => $val['title']], array_keys($services), $services);
 
     return view('frontend.service', compact('service', 'serviceList', 'slug'));
+});
+//
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
+
+
+    Route::get('/', 'DashboardController@index')->name('index');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('/home', 'DashboardController@index')->name('home');
+
+    Route::resource('banners', BannerController::class);
+    Route::resource('doctors', DoctorController::class);
+    Route::resource('departments', DepartmentController::class);
+    Route::resource('services', ServiceController::class);
+    Route::resource('galleries', GalleryGroupController::class)->names('gallery_groups');
+    Route::resource('gallery', GalleryItemController::class)->names('gallery_items');
+    Route::resource('testimonials', TestimonialController::class);
+    Route::group(['prefix' => 'blogs', 'as' => 'blogs.',], function () {
+        Route::resource('news-events', NewsEventController::class);
+        Route::resource('articles', ArticleController::class);
+        Route::resource('vlogs', VlogController::class);
+    });
+
+    Route::get('patients/search', "AppointmentController@search")->name('patients.search');
+    Route::post('patients/store-ajax', "AppointmentController@storeAjax")->name('patients.storeAjax');
+    Route::resource('patients', PatientController::class);
+
+    Route::resource('appointments', AppointmentController::class);
+    Route::resource('staff', StaffController::class);
+
+
+    Route::resource('lab-results', LabResultController::class);
+
+    Route::get('/account/settings', 'AccountController@edit')->name('account.edit');
+    Route::put('/account/settings', 'AccountController@update')->name('account.update');
+
+    Route::resource('staffs', BannerController::class);
 });
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // public function index(Request $request)
 // {
 //     $tab = $request->query('tab', 'news-and-events');

@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image',
+        'phone',
     ];
 
     /**
@@ -44,5 +46,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function photoFile()
+    {
+        return $this->belongsTo(MediaFile::class, 'image');
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return $this->photoFile ? asset('storage/' . $this->photoFile->file_path) : asset('assets/images/avatar-1.png');
     }
 }
