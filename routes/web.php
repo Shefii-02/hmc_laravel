@@ -96,44 +96,44 @@ Route::get('/service/{slug}', function ($slug) {
     return view('frontend.service', compact('service', 'serviceList', 'slug'));
 });
 
-Route::get('/article', function () {
-    // Increase time and memory limit for this operation
-    ini_set('max_execution_time', 0); // 0 = unlimited
-    ini_set('memory_limit', '512M');  // increase memory if needed
+// Route::get('/article', function () {
+//     // Increase time and memory limit for this operation
+//     ini_set('max_execution_time', 0); // 0 = unlimited
+//     ini_set('memory_limit', '512M');  // increase memory if needed
 
-    // ✅ URL of your Core PHP API
-    $apiUrl = "https://old.hayathmedicare.in/get_media?page=1&limit=1";
-    // wait up to 120 seconds
+//     // ✅ URL of your Core PHP API
+//     $apiUrl = "https://old.hayathmedicare.in/get_media?page=1&limit=1";
+//     // wait up to 120 seconds
 
-    // Fetch data
-    $response = Http::timeout(1200)->connectTimeout(300)->get($apiUrl);
+//     // Fetch data
+//     $response = Http::timeout(1200)->connectTimeout(300)->get($apiUrl);
 
-    if (!$response->ok()) {
-        return response()->json(['error' => 'Failed to fetch API data'], 500);
-    }
+//     if (!$response->ok()) {
+//         return response()->json(['error' => 'Failed to fetch API data'], 500);
+//     }
 
-    $data = $response->json();
+//     $data = $response->json();
 
-    if (!isset($data['data'])) {
-        return response()->json(['error' => 'Invalid API response'], 500);
-    }
+//     if (!isset($data['data'])) {
+//         return response()->json(['error' => 'Invalid API response'], 500);
+//     }
 
 
 
-    // ✅ Store or Update data
-    foreach ($data['data'] as $item) {
-        $article = Article::where('slug', $item['id'])->first();
-            $imagePath = saveBase64Image($item['image'] ?? 'media');
-        $article->image = $imagePath;
-        $article->save();
-    }
+//     // ✅ Store or Update data
+//     foreach ($data['data'] as $item) {
+//         $article = Article::where('slug', $item['id'])->first();
+//             $imagePath = saveBase64Image($item['image'] ?? 'media');
+//         $article->image = $imagePath;
+//         $article->save();
+//     }
 
-    return response()->json([
-        'status' => 'success',
-        'message' => 'Media imported successfully',
-        'count' => count($data['data'])
-    ]);
-});
+//     return response()->json([
+//         'status' => 'success',
+//         'message' => 'Media imported successfully',
+//         'count' => count($data['data'])
+//     ]);
+// });
 
 function saveBase64Image($base64String, $folder = 'media')
 {
