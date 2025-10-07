@@ -29,16 +29,15 @@ class Banner extends Model
         return $this->belongsTo(Company::class);
     }
 
-   public function image()
-{
-    return $this->belongsTo(MediaFile::class, 'image_id');
-}
+    public function image()
+    {
+        return $this->belongsTo(MediaFile::class, 'image_id');
+    }
 
-public function getImageUrlAttribute()
-{
-    return $this->image && $this->image->file_path
-        ? asset('storage/' . $this->image->file_path)
-        : null;
-}
-
+    public function getImageUrlAttribute()
+    {
+        return $this->image && $this->image->file_path
+            ? asset('storage/' . $this->image->file_path)
+            : null;
+    }
 }

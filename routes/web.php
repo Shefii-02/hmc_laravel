@@ -1,9 +1,15 @@
 <?php
 
+use App\Models\Article;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
-Route::get('/', function () {
-    return view('frontend.index');
+
+Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
+    Route::get('/', 'HomepageController@index')->name('index');
 });
 
 Route::get('/about-us', function () {
@@ -43,7 +49,7 @@ Route::get('/department/{slug}', function ($slug) {
     $department = $departments[$slug];
 
     return view('frontend.department', compact('department', 'slug'));
-});
+})->name('department-single');
 
 
 Route::get('/service/{slug}', function ($slug) {
@@ -89,6 +95,75 @@ Route::get('/service/{slug}', function ($slug) {
 
     return view('frontend.service', compact('service', 'serviceList', 'slug'));
 });
+
+Route::get('/article', function () {
+    // Increase time and memory limit for this operation
+    ini_set('max_execution_time', 0); // 0 = unlimited
+    ini_set('memory_limit', '512M');  // increase memory if needed
+
+    // ✅ URL of your Core PHP API
+    $apiUrl = "https://old.hayathmedicare.in/get_media?page=1&limit=1";
+    // wait up to 120 seconds
+
+    // Fetch data
+    $response = Http::timeout(1200)->connectTimeout(300)->get($apiUrl);
+
+    if (!$response->ok()) {
+        return response()->json(['error' => 'Failed to fetch API data'], 500);
+    }
+
+    $data = $response->json();
+
+    if (!isset($data['data'])) {
+        return response()->json(['error' => 'Invalid API response'], 500);
+    }
+
+
+
+    // ✅ Store or Update data
+    foreach ($data['data'] as $item) {
+        $article = Article::where('slug', $item['id'])->first();
+            $imagePath = saveBase64Image($item['image'] ?? 'media');
+        $article->image = $imagePath;
+        $article->save();
+    }
+
+    return response()->json([
+        'status' => 'success',
+        'message' => 'Media imported successfully',
+        'count' => count($data['data'])
+    ]);
+});
+
+function saveBase64Image($base64String, $folder = 'media')
+{
+        Log::info($base64String);
+    // Check if base64 string exists and looks valid
+    if (!$base64String || !str_contains($base64String, 'base64,')) {
+
+        return null;
+    }
+
+    // Extract image type and data
+    [$type, $data] = explode(';', $base64String);
+    [, $data] = explode(',', $data);
+    $imageType = str_replace('data:image/', '', $type);
+    $imageType = $imageType === 'jpeg' ? 'jpg' : $imageType;
+
+    // Decode base64 data
+    $imageData = base64_decode($data);
+
+    // Create unique filename
+    $fileName = Str::uuid() . '.' . $imageType;
+
+    // Save to storage/app/public/media
+    Storage::disk('public')->put("{$folder}/{$fileName}", $imageData);
+    Log::info("storage/{$folder}/{$fileName}");
+    // Return full path for database storage
+    return "storage/{$folder}/{$fileName}";
+}
+
+
 //
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth']], function () {
 

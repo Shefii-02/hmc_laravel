@@ -5,6 +5,7 @@
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('assets/images/fav-icon.png') }}">
     <title>
         HAYATH MEDICARE Hospital and Diagnostic Centre
     </title>
@@ -47,13 +48,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<style>
-    .page-breadcrumb .breadcrumb-item a:hover {
-  text-decoration: underline;
-  opacity: 0.85;
-}
-
-</style>
+    <style>
+        .page-breadcrumb .breadcrumb-item a:hover {
+            text-decoration: underline;
+            opacity: 0.85;
+        }
+        .departments-links a,.services-links a{
+            color: #FFF;
+        }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-136HE3VF4V"></script>
     <script>
@@ -179,7 +182,8 @@
                                         }
                                     }
                                 </style>
-                                <ul class="elementskit-dropdown departments elementskit-submenu-panel d-flex gap-3 flex-wrap">
+                                <ul
+                                    class="elementskit-dropdown departments elementskit-submenu-panel d-flex gap-3 flex-wrap">
 
                                     <li><a href="/department/general-Medicine">General Medicine</a></li>
                                     <li><a href="/department/orthopaedics">Orthopaedics</a></li>
@@ -205,7 +209,8 @@
                             </li>
 
                             <li class="elementskit-dropdown-has"><a href="#">Services</a>
-                                <ul class="elementskit-dropdown services elementskit-submenu-panel d-flex gap-3 flex-wrap">
+                                <ul
+                                    class="elementskit-dropdown services elementskit-submenu-panel d-flex gap-3 flex-wrap">
                                     <li><a href="/service/laboratory">Laboratory</a></li>
                                     <li><a href="/service/pharmacy">Pharmacy</a></li>
                                     <li><a href="/service/endoscopy">Endoscopy</a></li>
@@ -311,12 +316,11 @@
 </style>
 <!-- Footer Area -->
 
-<footer class="footer-area wow fadeIn" data-wow-delay=".2s">
+<footer class="bg-theme-gradient wow fadeIn" data-wow-delay=".2s">
     <div class="container">
         <div class="footer-up">
             <div class="row">
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 ">
-
 
                     <div class="social-area text-center mb-3">
                         <img src="{{ asset('assets/img/logo-white.png') }}" alt="-logo"><br>
@@ -328,24 +332,26 @@
                         <!--<a href="#"><i class="la la-linkedin"></i></a>-->
                     </div>
 
-
                 </div>
-                <div class="col-lg-2 offset-lg-1 col-md-4 com-sm-4 col-4">
-                    <h5>Departments</h5>
-                    <ul class='text-left'>
-                        <li><a href="General-Medicine">General Medicine</a></li>
-                        <li><a href="Orthopaedics">Orthopaedics</a></li>
-                        <li><a href="Pediatrics">Pediatrics</a></li>
-                        <li><a href="ENT">ENT</a></li>
-                        <li><a href="Diabetes">Diabetes</a></li>
-                        <li><a href="Gastroenterogy">Gastroenterogy</a></li>
-                        <li><a href="Dermatology"> Dermatology</a></li>
-                        <li><a href="Pulmonology"> Pulmonology</a></li>
+                 <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+                    <h5 class="text-light mb-2">Departments</h5>
+                    <ul class='text-left services-links'>
+                        <li>
+                            <a href="#"><span>-</span> General Medicine</a>
+                            <a href="#"><span>-</span> Orthopaedics</a>
+                            <a href="#"><span>-</span> Pediatrics</a>
+                            <a href="#"><span>-</span> ENT</a>
+                            <a href="#"><span>-</span> Diabetes</a>
+                            <a href="#"><span>-</span> Gastroenterogy</a>
+                            <a href="#"><span>-</span> Dermatology</a>
+                            <a href="#"><span>-</span> Pulmonology</a>
+                        </li>
                     </ul>
                 </div>
+
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12">
-                    <h5>Services</h5>
-                    <ul class='text-left' style='text-transform:capitalize;'>
+                    <h5 class="text-light mb-2">Services</h5>
+                    <ul class='text-left services-links'>
                         <li>
                             <a href="#"><span>-</span> Laboratory</a>
                             <a href="#"><span>-</span> PHARMACY</a>
@@ -359,8 +365,8 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-12  col-sm-12 col-12">
-                    <h5>Quick Links</h5>
-                    <ul class='text-left' style='text-transform:capitalize;'>
+                    <h5 class="text-light mb-2">Quick Links</h5>
+                    <ul class='text-left services-links'>
                         <li>
                             <a href="#"><span>-</span> About us</a>
                             <a href="#"><span>-</span> Career</a>
@@ -430,7 +436,7 @@
         width: 60px;
         height: 60px;
         bottom: 40px;
-          left: 40px;
+        left: 40px;
         background-color: #25d366;
         color: #FFF;
         border-radius: 50px;
@@ -451,7 +457,7 @@
 
 @stack('scripts')
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     var Tawk_API = Tawk_API || {},
         Tawk_LoadStart = new Date();
     (function() {
@@ -463,7 +469,7 @@
         s1.setAttribute('crossorigin', '*');
         s0.parentNode.insertBefore(s1, s0);
     })();
-</script>
+</script> --}}
 <!--End of Tawk.to Script-->
 </body>
 

@@ -119,7 +119,7 @@
         .emergency-section .wrapper {
             padding: 50px;
             /* max-width: 1000px;
-                                                                                                margin: 0 auto; */
+                                                                                                                            margin: 0 auto; */
         }
 
         .alert.alert-transparent {
@@ -129,13 +129,60 @@
             border-radius: 15px;
         }
 
+        /* .bg-emergency {
+                                background-image: url('/assets/images/hayath-emergency.webp');
+                                position: relative;
+                                padding: 50px 0px 50px;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                            } */
+
         .bg-emergency {
-            background-image: url('/assets/images/hayath-emergency.jpg');
             position: relative;
-            padding: 50px 0px 50px;
+            padding: 200px 0;
+            background-image: url('/assets/images/hayath-emergency.webp');
             background-size: cover;
             background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden;
+            z-index: 1;
         }
+
+        /* Optional: glass blur overlay */
+        .bg-emergency::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgb(60 139 112 / 7%);
+            /* darken for contrast */
+            /* backdrop-filter: blur(6px); */
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1;
+        }
+
+        /* Make content above overlay */
+        .bg-emergency>.container,
+        .bg-emergency>.container * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* White bottom spread / curve */
+        .bg-emergency::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            /* slightly overlap next section */
+            left: 0;
+            width: 100%;
+            height: 70px;
+            /* adjust the curve height */
+            background: white;
+            border-radius: 50% 50% 0 0;
+            z-index: 2;
+        }
+
+
 
         .emergency-section .phone,
         .map-section .phone {
@@ -144,7 +191,7 @@
             font-weight: 700;
             font-size: 36px;
             line-height: 1.3em;
-            padding-left: 80px;
+            padding-left: 50px;
             padding-top: 5px;
             margin-top: 25px;
             text-align: left;
@@ -154,15 +201,61 @@
         .map-section .phone span {
             width: 55px;
             height: 55px;
-            color: #ffffff;
+            color: #000000;
             font-size: 30px;
             text-align: center;
             line-height: 51px;
             border-radius: 8px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(7, 7, 7, 0.2);
         }
 
+        @media only screen and (min-width: 992px) {
+            .we-are-provide {
+                font-size: 50px;
+            }
+        }
 
+        .bg-we-provided-points {
+            background: linear-gradient(135deg, #4bb9ea 20%, #8ec641 20%, #4bb9ea 28%, #8ec641 100%);
+        }
+
+        .bg-theme-gradient {
+            background: linear-gradient(135deg, rgb(10 4 5 / 70%) 0%, rgb(22 21 66 / 70%) 48%, rgb(15 156 239 / 70%) 100%);
+            background-color: #26c9f1;
+        }
+
+        .bg-emergency-2 {
+            position: relative;
+            padding: 50px 0;
+            background-image: url('/assets/images/hayath-emergency.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .bg-theme-2 {
+            background-color: #4bb9ea;
+        }
+
+        .bg-emergency-2::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: #89b9d067;
+            /* darken for contrast */
+            /* backdrop-filter: blur(6px); */
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1;
+        }
+
+        /* Make content above overlay */
+        .bg-emergency-2>.container,
+        .bg-emergency-2>.container * {
+            position: relative;
+            z-index: 2;
+        }
     </style>
 @endpush
 @section('content')
@@ -173,18 +266,11 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">
-                    <img src="/assets/images/banners/1757396456_Ortho.jpg" class="w-100">
-
-                </div>
-                <div class="swiper-slide">
-                    <img src="/assets/images/banners/1757398104_Urology.jpg" class="w-100">
-
-                </div>
-                <div class="swiper-slide">
-                    <img src="/assets/images/banners/1757398470_Dental.jpg" class="w-100">
-                </div>
-
+                @foreach ($banners ?? [] as $item)
+                    <div class="swiper-slide">
+                        <img src="{{ $item->image_url }}" class="w-100">
+                    </div>
+                @endforeach
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -247,60 +333,14 @@
                         <div class="col-lg-6">
                             <div class="swiper mySwiperDepartment">
                                 <div class="swiper-wrapper  pb-5">
-                                    <div class="swiper-slide">
-                                        <a href="">
-                                            <img class="rounded"
-                                                src="https://malabarhospitals.com/css/images/departments/pulmanology.png">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="">
-                                            <img class="rounded"
-                                                src="https://malabarhospitals.com/css/images/departments/pulmanology.png">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="">
-                                            <img class="rounded"
-                                                src="https://malabarhospitals.com/css/images/departments/pulmanology.png">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="">
-                                            <img class="rounded"
-                                                src="https://malabarhospitals.com/css/images/departments/pulmanology.png">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="">
-                                            <img class="rounded"
-                                                src="https://malabarhospitals.com/css/images/departments/pulmanology.png">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="">
-                                            <img class="rounded"
-                                                src="https://malabarhospitals.com/css/images/departments/pulmanology.png">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="">
-                                            <img class="rounded"
-                                                src="https://malabarhospitals.com/css/images/departments/pulmanology.png">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="">
-                                            <img class="rounded"
-                                                src="https://malabarhospitals.com/css/images/departments/pulmanology.png">
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="">
-                                            <img class="rounded"
-                                                src="https://malabarhospitals.com/css/images/departments/pulmanology.png">
-                                        </a>
-                                    </div>
+                                    @foreach ($departments ?? [] as $department)
+                                        <div class="swiper-slide">
+                                            <a href="{{ route('department-single', $department->name) }}">
+                                                <img class="rounded" src="{{ $department->thumb_image_url }}">
+                                            </a>
+                                        </div>
+                                    @endforeach
+
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>
@@ -319,22 +359,10 @@
                         <div class="col-lg-8 ">
                             <div class="wrapper">
                                 <div class ="quote">
-                                    <svg version="1.1" id="heartRate" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 699 114.3"
-                                        enable-background="new 0 0 699 114.3" xml:space="preserve">
-                                        <path class="pather1" fill="none" stroke="#8ec641" stroke-width="4"
-                                            stroke-miterlimit="10"
-                                            d="M707.9,78c0,0-17.1-0.6-31.1-0.6
-                                                                                                             s-30,3.1-31.5,0.6S641,49.3,641,49.3l-10.5,58.5L619.3,7.5c0,0-11.3,66.8-12.5,70.5c0,0-17.1-0.6-31.1-0.6s-30,3.1-31.5,0.6
-                                                                                                             s-4.3-28.8-4.3-28.8l-10.5,58.5L518.1,7.5c0,0-11.3,66.8-12.5,70.5c0,0-17.1-0.6-31.1-0.6s-30,3.1-31.5,0.6s-4.3-28.8-4.3-28.8
-                                                                                                             l-10.5,58.5L417,7.5c0,0-11.3,66.8-12.5,70.5c0,0-17.1-0.6-31.1-0.6s-30,3.1-31.5,0.6s-4.3-28.8-4.3-28.8l-10.5,58.5L315.9,7.5
-                                                                                                             c0,0-11.3,66.8-12.5,70.5c0,0-17.1-0.6-31.1-0.6s-30,3.1-31.5,0.6s-4.3-28.8-4.3-28.8L226,107.8L214.8,7.5c0,0-11.3,66.8-12.5,70.5
-                                                                                                             c0,0-17.1-0.6-31.1-0.6s-30,3.1-31.5,0.6s-4.3-28.8-4.3-28.8l-10.5,58.5L113.6,7.5c0,0-11.3,66.8-12.5,70.5c0,0-17.1-0.6-31.1-0.6
-                                                                                                             S40,80.5,38.5,78s-4.3-28.8-4.3-28.8l-10.5,58.5L12.5,7.5C12.5,7.5,1.3,74.3,0,78" />
-                                    </svg>
 
-                                    <h2 class="text-light fs-1 fw-bold">We are Provide</h2>
-                                    <h1 class="text-white text-light">
+
+                                    <h1 class="text-black fw-bold we-are-provide">We are Provide</h1>
+                                    <h1 class="text-black">
                                         <span class="txt-rotate" data-period="1000"
                                             data-rotate='[ "Emergency Medical Care 24/7.", "Quality Health facility.", "Qualified Doctors.", "Patient Friendly" ]'></span>
                                     </h1>
@@ -343,34 +371,34 @@
                             <div class="my-2">
                                 <p class="phone">
                                     <span class="bi bi-telephone-forward-fill"></span>
-                                    <a href="tel:04952420000" class="text-light fw-bold fs-2">0495 2420000,</a>
-                                    <a href="tel:+917592997991" class="text-light fw-bold fs-2"> +75929 97991</a>
+                                    <a href="tel:04952420000" class="text-black fw-bold fs-2">0495 2420000,</a>
+                                    <a href="tel:+917592997991" class="text-black fw-bold fs-2"> +75929 97991</a>
                                 </p>
                             </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="alert alert-transparent mb-2 d-flex align-items-center" role="alert">
+                            <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
                                 <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
                                 <div class="ms-4">
                                     <h1 class="fw-bold text-light fs-5">Health Plans We Accept</h1>
                                 </div>
                             </div>
-                            <div class="alert alert-transparent mb-2 d-flex align-items-center" role="alert">
+                            <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
                                 <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
                                 <div class="ms-4">
-                                    <h1 class="fw-bold text-light fs-5">Health Plans We Accept</h1>
+                                    <h1 class="fw-bold text-light fs-5">Book Appointment</h1>
                                 </div>
                             </div>
-                            <div class="alert alert-transparent mb-2 d-flex align-items-center" role="alert">
+                            <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
                                 <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
                                 <div class="ms-4">
-                                    <h1 class="fw-bold text-light fs-5">Health Plans We Accept</h1>
+                                    <h1 class="fw-bold text-light fs-5">Lab Results</h1>
                                 </div>
                             </div>
-                            <div class="alert alert-transparent mb-2 d-flex align-items-center" role="alert">
+                            <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
                                 <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
                                 <div class="ms-4">
-                                    <h1 class="fw-bold text-light fs-5">Health Plans We Accept</h1>
+                                    <h1 class="fw-bold text-light fs-5">Latest News & Events</h1>
                                 </div>
                             </div>
                         </div>
@@ -386,78 +414,31 @@
 
                     <div class="swiper mySwiperTestimonial">
                         <div class="swiper-wrapper pb-5">
+                            @foreach ($testimonials ?? [] as $testimonial)
+                                <!-- Testimonial 1 -->
+                                <div class="swiper-slide">
+                                    <div class="card shadow-sm border-0 rounded-3 p-4 h-100">
+                                        <p class="mb-3">"{{ $testimonial->message }}"</p>
+                                        <!-- Stars -->
 
-                            <!-- Testimonial 1 -->
-                            <div class="swiper-slide">
-                                <div class="card shadow-sm border-0 rounded-3 p-4 h-100">
-                                    <p class="mb-3">"The doctors and staff were very supportive throughout my treatment.
-                                        Highly recommend this hospital!"</p>
-                                    <!-- Stars -->
-                                    <div class="mb-2 text-warning">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                    <h6 class="fw-bold mb-0">John Mathew</h6>
-                                    <small class="text-muted">Kozhikode, Kerala</small>
-                                </div>
-                            </div>
+                                        <div class="mt-2">
+                                            <div class="d-flex gal-3">
+                                                <div class="col-2">
+                                                    <img src="{{ $testimonial->image_url }}">
+                                                </div>
+                                                <div class="col-10">
+                                                    <h6 class="fw-bold mb-0">{{ $testimonial->name }}</h6>
+                                                     <small class="text-muted">{{ $testimonial->designation }}</small>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                            <!-- Testimonial 2 -->
-                            <div class="swiper-slide">
-                                <div class="card shadow-sm border-0 rounded-3 p-4 h-100">
-                                    <p class="mb-3">"Excellent facilities and friendly nurses. I felt very comfortable
-                                        during my stay here."</p>
-                                    <!-- Stars -->
-                                    <div class="mb-2 text-warning">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                    </div>
-                                    <h6 class="fw-bold mb-0">Aisha Rahman</h6>
-                                    <small class="text-muted">Malappuram, Kerala</small>
-                                </div>
-                            </div>
 
-                            <!-- Testimonial 3 -->
-                            <div class="swiper-slide">
-                                <div class="card shadow-sm border-0 rounded-3 p-4 h-100">
-                                    <p class="mb-3">"One of the best hospitals for specialized treatments. Thank you for
-                                        the great care!"</p>
-                                    <!-- Stars -->
-                                    <div class="mb-2 text-warning">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
                                     </div>
-                                    <h6 class="fw-bold mb-0">Rajesh Kumar</h6>
-                                    <small class="text-muted">Thrissur, Kerala</small>
                                 </div>
-                            </div>
+                            @endforeach
 
-                            <!-- Testimonial 4 -->
-                            <div class="swiper-slide">
-                                <div class="card shadow-sm border-0 rounded-3 p-4 h-100">
-                                    <p class="mb-3">"The doctors and staff were very supportive throughout my treatment.
-                                        Highly recommend this hospital!"</p>
-                                    <!-- Stars -->
-                                    <div class="mb-2 text-warning">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                    <h6 class="fw-bold mb-0">John Mathew</h6>
-                                    <small class="text-muted">Kozhikode, Kerala</small>
-                                </div>
-                            </div>
+
 
                         </div>
 
@@ -479,61 +460,21 @@
                     <div class="swiper mySwiperDoctors">
                         <div class="swiper-wrapper  pb-5">
 
-                            <!-- Doctor 1 -->
-                            <div class="swiper-slide">
-                                <div class="card shadow-sm border-0 rounded-3 text-center p-3 h-100">
-                                    <img src="https://user-images.githubusercontent.com/13468728/234031617-2dfb19ea-01d0-4370-b63b-bb6bdfb4f78e.jpg"
-                                        class="rounded-5 mx-auto mb-3" alt="Doctor 1">
-                                    <h6 class="fw-bold mb-1">Dr. Sarah Mathew</h6>
-                                    <small class="text-muted d-block mb-1">Cardiologist</small>
-                                    <small class="text-secondary">Kozhikode, Kerala</small>
+                            @foreach ($doctors ?? [] as $doctor)
+                                <!-- Doctor 1 -->
+                                <div class="swiper-slide">
+                                    <div class="card shadow-sm border-0 rounded-3 text-center p-3 h-100">
+                                        <img src="{{ $doctor->photo_url }}" class="rounded-5 mx-auto mb-3"
+                                            alt="Doctor 1">
+                                        <h6 class="fw-bold mb-1">{{ $doctor->name }}</h6>
+                                        <small class="text-muted d-block mb-1">{{ $doctor->designation }}</small>
+                                        <div class="col-lg-12 text-center">
+                                            <a href="#"
+                                                class="text-light btn-sm btn btn-theme2 w-25 text-center">Book</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- Doctor 2 -->
-                            <div class="swiper-slide">
-                                <div class="card shadow-sm border-0 rounded-3 text-center p-3 h-100">
-                                    <img src="https://user-images.githubusercontent.com/13468728/234031617-2dfb19ea-01d0-4370-b63b-bb6bdfb4f78e.jpg"
-                                        class="rounded-5 mx-auto mb-3" alt="Doctor 2">
-                                    <h6 class="fw-bold mb-1">Dr. Arjun Nair</h6>
-                                    <small class="text-muted d-block mb-1">Orthopedic Surgeon</small>
-                                    <small class="text-secondary">Thrissur, Kerala</small>
-                                </div>
-                            </div>
-
-                            <!-- Doctor 3 -->
-                            <div class="swiper-slide">
-                                <div class="card shadow-sm border-0 rounded-3 text-center p-3 h-100">
-                                    <img src="https://user-images.githubusercontent.com/13468728/234031617-2dfb19ea-01d0-4370-b63b-bb6bdfb4f78e.jpg"
-                                        class="rounded-5 mx-auto mb-3" alt="Doctor 3">
-                                    <h6 class="fw-bold mb-1">Dr. Aisha Rahman</h6>
-                                    <small class="text-muted d-block mb-1">Pediatrician</small>
-                                    <small class="text-secondary">Malappuram, Kerala</small>
-                                </div>
-                            </div>
-
-                            <!-- Doctor 4 -->
-                            <div class="swiper-slide">
-                                <div class="card shadow-sm border-0 rounded-3 text-center p-3 h-100">
-                                    <img src="https://user-images.githubusercontent.com/13468728/234031617-2dfb19ea-01d0-4370-b63b-bb6bdfb4f78e.jpg"
-                                        class="rounded-5 mx-auto mb-3" alt="Doctor 4">
-                                    <h6 class="fw-bold mb-1">Dr. Rajesh Kumar</h6>
-                                    <small class="text-muted d-block mb-1">Neurologist</small>
-                                    <small class="text-secondary">Kochi, Kerala</small>
-                                </div>
-                            </div>
-                            <!-- Doctor 5 -->
-                            <div class="swiper-slide">
-                                <div class="card shadow-sm border-0 rounded-3 text-center p-3 h-100">
-                                    <img src="https://user-images.githubusercontent.com/13468728/234031617-2dfb19ea-01d0-4370-b63b-bb6bdfb4f78e.jpg"
-                                        class="rounded-5 mx-auto mb-3" alt="Doctor 2">
-                                    <h6 class="fw-bold mb-1">Dr. Arjun Nair</h6>
-                                    <small class="text-muted d-block mb-1">Orthopedic Surgeon</small>
-                                    <small class="text-secondary">Thrissur, Kerala</small>
-                                </div>
-                            </div>
-
-
+                            @endforeach
                         </div>
 
                         <!-- Pagination & Navigation -->
@@ -564,38 +505,16 @@
                         <div class="col-lg-9">
                             <div class="swiper mySwiperVideos">
                                 <div class="swiper-wrapper pb-5">
-
-                                    <!-- Video 1 -->
-                                    <div class="swiper-slide">
-                                        <div class="ratio ratio-16x9">
-                                            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="YouTube video"
-                                                allowfullscreen></iframe>
+                                    @foreach ($vlogs ?? [] as $vlog)
+                                        <!-- Video 1 -->
+                                        <div class="swiper-slide">
+                                            <div class="ratio ratio-16x9">
+                                                <iframe src="https://www.youtube.com/embed/{{ $vlog->video_url }}"
+                                                    title="YouTube video" allowfullscreen></iframe>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endforeach
 
-                                    <!-- Video 2 -->
-                                    <div class="swiper-slide">
-                                        <div class="ratio ratio-16x9">
-                                            <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" title="YouTube video"
-                                                allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-
-                                    <!-- Video 3 -->
-                                    <div class="swiper-slide">
-                                        <div class="ratio ratio-16x9">
-                                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"
-                                                allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-
-                                    <!-- Video 4 -->
-                                    <div class="swiper-slide">
-                                        <div class="ratio ratio-16x9">
-                                            <iframe src="https://www.youtube.com/embed/lTTajzrSkCw" title="YouTube video"
-                                                allowfullscreen></iframe>
-                                        </div>
-                                    </div>
 
                                 </div>
 
@@ -630,50 +549,23 @@
                             <div class="swiper mySwiperNews">
                                 <div class="swiper-wrapper">
 
-                                    <!-- News Item 1 -->
-                                    <div class="swiper-slide">
-                                        <div class="card shadow-sm border-0 rounded-3 overflow-hidden h-100">
-                                            <img src="https://images.pexels.com/photos/139398/thermometer-headache-pain-pills-139398.jpeg"
-                                                class="card-img-top" alt="News 1">
-                                            <div class="card-body">
-                                                <small class="text-muted d-block mb-1"><i
-                                                        class="bi bi-calendar-event"></i> 20 Sep 2025</small>
-                                                <h6 class="fw-bold">Free Cardiac Health Camp</h6>
-                                                <p class="small text-muted mb-0">Join us for a free cardiac screening camp
-                                                    with expert cardiologists.</p>
+                                    @foreach ($news_events ?? [] as $news_event)
+                                        <!-- News Item 1 -->
+                                        <div class="swiper-slide">
+                                            <div class="card shadow-sm border-0 rounded-3 overflow-hidden h-100">
+                                                <img src="{{ $news_event->image_url }}" class="card-img-top"
+                                                    alt="News 1">
+                                                <div class="card-body">
+                                                    <small class="text-muted d-block mb-1"><i
+                                                            class="bi bi-calendar-event"></i> 20 Sep 2025</small>
+                                                    <h6 class="fw-bold">{{ $news_event->title }}</h6>
+                                                    <p class="small text-muted mb-0">
+                                                        {{ Str::limit($news_event->description, '20') }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endforeach
 
-                                    <!-- News Item 2 -->
-                                    <div class="swiper-slide">
-                                        <div class="card shadow-sm border-0 rounded-3 overflow-hidden h-100">
-                                            <img src="https://images.pexels.com/photos/139398/thermometer-headache-pain-pills-139398.jpeg"
-                                                class="card-img-top" alt="News 2">
-                                            <div class="card-body">
-                                                <small class="text-muted d-block mb-1"><i
-                                                        class="bi bi-calendar-event"></i> 10 Aug 2025</small>
-                                                <h6 class="fw-bold">Blood Donation Drive</h6>
-                                                <p class="small text-muted mb-0">Our hospital successfully organized a
-                                                    blood donation camp with great participation.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- News Item 3 -->
-                                    <div class="swiper-slide">
-                                        <div class="card shadow-sm border-0 rounded-3 overflow-hidden h-100">
-                                            <img src="https://images.pexels.com/photos/139398/thermometer-headache-pain-pills-139398.jpeg"
-                                                class="card-img-top" alt="News 3">
-                                            <div class="card-body">
-                                                <small class="text-muted d-block mb-1"><i
-                                                        class="bi bi-calendar-event"></i> 25 Jul 2025</small>
-                                                <h6 class="fw-bold">World Hepatitis Day</h6>
-                                                <p class="small text-muted mb-0">Awareness program conducted by our
-                                                    gastroenterology department.</p>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 </div>
 
@@ -699,15 +591,14 @@
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.5509946420307!2d76.02970801411696!3d10.845632560879807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7b73c80314e33%3A0x49cf3b197f4eaa49!2sHayath%20Medicare!5e0!3m2!1sen!2sin!4v1642097857941!5m2!1sen!2sin"
                             width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-                    <div class="col-lg-6 mt-3 bg-emergency">
+                    <div class="col-lg-6 mt-3 bg-emergency-2">
                         <div class="my-2">
                             <div class="phone d-flex gap-2 align-items-center">
                                 <span class="bi bi-telephone-forward-fill"></span>
-                                <div class="d-flex flex-column align-items-center">
-
-                                    <h1 class="text-light">Book An Appointment</h1>
-                                    <a href="tel:04952420000" class="text-light fw-bold fs-2">0495 2420000,</a>
-                                    <a href="tel:+917592997991" class="text-light fw-bold fs-2"> +75929 97991</a>
+                                <div class="d-flex flex-column align-items-start">
+                                    <h1 class="text-black fw-bold fs-1">Book An Appointment</h1>
+                                    <a href="tel:04952420000" class="text-black fw-bold fs-2">0495 2420000,</a>
+                                    <a href="tel:+917592997991" class="text-black fw-bold fs-2"> +75929 97991</a>
                                 </div>
 
                             </div>
