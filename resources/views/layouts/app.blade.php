@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" class="js-focus-visible" data-js-focus-visible="">
 
 <head>
@@ -53,8 +52,267 @@
             text-decoration: underline;
             opacity: 0.85;
         }
-        .departments-links a,.services-links a{
+
+        .departments-links a,
+        .services-links a {
             color: #FFF;
+        }
+    </style>
+    <style>
+        .swiper {
+            width: 100%;
+            height: 100%;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mySwiper .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mySwiper .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mySwiper .swiper-button-next,
+        .mySwiper .swiper-button-prev,
+        .mySwiperTestimonial .swiper-button-next,
+        .mySwiperTestimonial .swiper-button-prev,
+        .mySwiperDoctors .swiper-button-next,
+        .mySwiperDoctors .swiper-button-prev {
+            color: #000;
+        }
+
+        .mySwiper .swiper-button-next:after,
+        .mySwiper .swiper-button-prev:after {
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+
+        .mySwiperTestimonial .swiper-button-next:after,
+        .mySwiperTestimonial .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        /*...................................*/
+        .mySwiperDepartment .swiper-wrapper {
+            height: auto !important;
+            /* remove fixed height */
+        }
+
+        .mySwiperDepartment .swiper-slide {
+            height: auto !important;
+            /* allow Swiper to set */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mySwiperDepartment .swiper-slide {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* **************************** */
+        .player-wrapper {
+            /* transform: translate(-36%, -100%); */
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+
+        .player-icon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            left: 20px;
+            top: -30px;
+            background-color: #22e36e;
+            border: 5px solid #ffffff;
+            border-radius: 50%;
+            animation: player 1.1s ease-out infinite normal;
+        }
+
+
+        .triangle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-40%, -50%);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 20px solid white;
+        }
+
+        @keyframes player {
+            from {
+                box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0.6);
+            }
+
+            to {
+                box-shadow: 0 0 0px 30px rgba(0, 0, 0, 0.01);
+            }
+        }
+
+        .text-theme-1 {
+            color: #4bb9e9;
+        }
+
+        /* *************************************************************** */
+
+        .emergency-section .wrapper {
+            padding: 50px;
+            /* max-width: 1000px;
+                                                                                                                            margin: 0 auto; */
+        }
+
+        .alert.alert-transparent {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+        }
+
+        /* .bg-emergency {
+                                background-image: url('/assets/images/hayath-emergency.webp');
+                                position: relative;
+                                padding: 50px 0px 50px;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                            } */
+
+        .bg-emergency {
+            position: relative;
+            padding: 200px 0;
+            background-image: url('/assets/images/hayath-emergency.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Optional: glass blur overlay */
+        .bg-emergency::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgb(60 139 112 / 7%);
+            /* darken for contrast */
+            /* backdrop-filter: blur(6px); */
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1;
+        }
+
+        /* Make content above overlay */
+        .bg-emergency>.container,
+        .bg-emergency>.container * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* White bottom spread / curve */
+        .bg-emergency::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            /* slightly overlap next section */
+            left: 0;
+            width: 100%;
+            height: 70px;
+            /* adjust the curve height */
+            background: white;
+            border-radius: 50% 50% 0 0;
+            z-index: 2;
+        }
+
+
+
+        .emergency-section .phone,
+        .map-section .phone {
+            position: relative;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 1.3em;
+            padding-left: 50px;
+            padding-top: 5px;
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .emergency-section .phone span,
+        .map-section .phone span {
+            width: 55px;
+            height: 55px;
+            color: #000000;
+            font-size: 30px;
+            text-align: center;
+            line-height: 51px;
+            border-radius: 8px;
+            border: 2px solid rgba(7, 7, 7, 0.2);
+        }
+
+        @media only screen and (min-width: 992px) {
+            .we-are-provide {
+                font-size: 50px;
+            }
+        }
+
+        .bg-we-provided-points {
+            background: linear-gradient(135deg, #4bb9ea 20%, #8ec641 20%, #4bb9ea 28%, #8ec641 100%);
+        }
+
+        .bg-theme-gradient {
+            background: linear-gradient(135deg, rgb(10 4 5 / 70%) 0%, rgb(22 21 66 / 70%) 48%, rgb(15 156 239 / 70%) 100%);
+            background-color: #26c9f1;
+        }
+
+        .bg-emergency-2 {
+            position: relative;
+            padding: 50px 0;
+            background-image: url('/assets/images/hayath-emergency.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .bg-theme-2 {
+            background-color: #4bb9ea;
+        }
+
+        .bg-emergency-2::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: #89b9d067;
+            /* darken for contrast */
+            /* backdrop-filter: blur(6px); */
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1;
+        }
+
+        /* Make content above overlay */
+        .bg-emergency-2>.container,
+        .bg-emergency-2>.container * {
+            position: relative;
+            z-index: 2;
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -166,70 +424,45 @@
                                     <li><a href="book-now">Book an Appointment</a></li> --}}
                                 </ul>
                             </li>
+                            <style>
+                                @media (min-width: 992px) {
+                                    .aa {
+                                        min-width: 500px !important;
+                                    }
 
+                                    .aa li {
+                                        padding: 10px 15px !important;
+                                    }
+                                }
+                            </style>
 
                             <li class="elementskit-dropdown-has">
                                 <a href="#">Departments</a>
 
-                                <style>
-                                    @media (min-width: 992px) {
-                                        .aa {
-                                            min-width: 500px !important;
-                                        }
 
-                                        .aa li {
-                                            padding: 10px 15px !important;
-                                        }
-                                    }
-                                </style>
                                 <ul
                                     class="elementskit-dropdown departments elementskit-submenu-panel d-flex gap-3 flex-wrap">
+                                    @foreach (getDepartments() as $dept)
+                                        <li><a href="/department/{{ $dept->slug }}">{{ $dept->name }}</a></li>
+                                    @endforeach
 
-                                    <li><a href="/department/general-Medicine">General Medicine</a></li>
-                                    <li><a href="/department/orthopaedics">Orthopaedics</a></li>
-                                    <li><a href="/department/pediatrics">Pediatrics</a></li>
-                                    <li><a href="/department/ENT">ENT</a></li>
-                                    <li><a href="/department/diabetes">Diabetes</a></li>
-                                    <li><a href="/department/gastroenterogy">Gastroenterogy</a></li>
-                                    <li><a href="/department/dermatology"> Dermatology</a></li>
-                                    <li><a href="/department/pulmonology"> Pulmonology</a></li>
-                                    <li><a href="/department/gynecology">Gynecology</a></li>
-
-                                    <li><a href="/department/general-Surgery">General Surgery</a></li>
-                                    <li><a href="/department/dental">Dental</a></li>
-                                    <li><a href="/department/ophthalmology">Ophthalmology</a></li>
-                                    <li><a href="/department/nephrology">Nephrology</a></li>
-                                    <li><a href="/department/urology">Urology</a></li>
-                                    <li><a href="/department/cardiac">Cardiac</a></li>
-                                    <li><a href="/department/psychiatry">Psychiatry</a></li>
-                                    <li><a href="/department/homeopathy">Homeopathy</a></li>
-                                    <li><a href="/department/ayurvedic">Ayurvedic</a></li>
-                                    <li><a href="/department/neurology">Neurology</a></li>
                                 </ul>
                             </li>
 
                             <li class="elementskit-dropdown-has"><a href="#">Services</a>
                                 <ul
                                     class="elementskit-dropdown services elementskit-submenu-panel d-flex gap-3 flex-wrap">
-                                    <li><a href="/service/laboratory">Laboratory</a></li>
-                                    <li><a href="/service/pharmacy">Pharmacy</a></li>
-                                    <li><a href="/service/endoscopy">Endoscopy</a></li>
-                                    <li><a href="/service/ecg">Ecg</a></li>
-                                    <li><a href="/service/emergency-Care">Emergency Care</a></li>
-                                    <li><a href="/service/telemedicine">Telemedicine</a></li>
-                                    <li><a href="/service/medicine-at-Door">Medicine at Door</a></li>
-                                    <li><a href="/service/home-Care">Home Care</a></li>
-                                    <li><a href="/service/x-ray">X-ray</a></li>
-                                    <li><a href="/service/ultra-Sound-Scanning">Ultra Sound Scanning</a></li>
-                                    <li><a href="/service/physiotherapy">Physiotherapy</a></li>
-                                    <li><a href="/service/operation-Theater">Operation Theater</a></li>
+                                    @foreach (getServices() as $srv)
+                                        <li><a href="/service/{{ $srv->slug }}">{{ $srv->title }}</a></li>
+                                    @endforeach
+
+
                                 </ul>
                             </li>
-                            <li><a href="/gallery">Gallery</a></li>
+                            <li><a href="{{ route('galleries') }}">Gallery</a></li>
                             <li><a href="/blog">Blog</a></li>
                             <li class="d-block d-lg-none text-center">
-                                <a href="/arogyam-njagalilude">
-
+                                <a href="{{ route('arogyam-njagalilude', ['tab' => 'articles']) }}">
                                     <img src="{{ asset('assets/img/arogyaham.png') }}" class="mt-1 mb-2">
                                 </a>
                                 <hr>
@@ -333,18 +566,13 @@
                     </div>
 
                 </div>
-                 <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12">
                     <h5 class="text-light mb-2">Departments</h5>
                     <ul class='text-left services-links'>
                         <li>
-                            <a href="#"><span>-</span> General Medicine</a>
-                            <a href="#"><span>-</span> Orthopaedics</a>
-                            <a href="#"><span>-</span> Pediatrics</a>
-                            <a href="#"><span>-</span> ENT</a>
-                            <a href="#"><span>-</span> Diabetes</a>
-                            <a href="#"><span>-</span> Gastroenterogy</a>
-                            <a href="#"><span>-</span> Dermatology</a>
-                            <a href="#"><span>-</span> Pulmonology</a>
+                            @foreach (getDepartments() as $dept)
+                                <a href="/department/{{ $dept->slug }}"><span>-</span> {{ $dept->name }}</a>
+                            @endforeach
                         </li>
                     </ul>
                 </div>
@@ -353,14 +581,9 @@
                     <h5 class="text-light mb-2">Services</h5>
                     <ul class='text-left services-links'>
                         <li>
-                            <a href="#"><span>-</span> Laboratory</a>
-                            <a href="#"><span>-</span> PHARMACY</a>
-                            <a href="#"><span>-</span> ENDOSCOPY</a>
-                            <a href="#"><span>-</span> ECG</a>
-                            <a href="#"><span>-</span> EMERGENCY CARE</a>
-                            <a href="#"><span>-</span> TELEMEDICINE</a>
-                            <a href="#"><span>-</span> MEDICINE AT DOOR</a>
-                            <a href="#"><span>-</span> HOME CARE</a>
+                            @foreach (getServices() as $srv)
+                                <a href="/service/{{ $srv->slug }}"><span>-</span> {{ $srv->title }}</a>
+                            @endforeach
                         </li>
                     </ul>
                 </div>
@@ -369,7 +592,7 @@
                     <ul class='text-left services-links'>
                         <li>
                             <a href="#"><span>-</span> About us</a>
-                            <a href="#"><span>-</span> Career</a>
+                            {{-- <a href="#"><span>-</span> Career</a> --}}
                             <a href="#"><span>-</span> Doctors</a>
                             <a href="#"><span>-</span> Contact</a>
                             <a href="#"><span>-</span> Gallery</a>
@@ -389,7 +612,7 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-6 col-md-6 col-sm-6">
-                <p class="copyright-line">© 2021 . All rights reserved.</p>
+                <p class="copyright-line">© {{ date('Y') }} . All rights reserved.</p>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
@@ -454,6 +677,36 @@
     class="float" target="_blank">
     <i class="bi bi-whatsapp my-float"></i>
 </a>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true,
+        "preventDuplicates": false,
+        "positionClass": "toast-top-right", // Toast position
+        "timeOut": "5000", // Timeout duration
+        "extendedTimeOut": "5000",
+    };
+
+    @if (session('success'))
+        toastr.success("{{ session('success') }}", "Success");
+    @elseif (session('error'))
+        toastr.error("{{ session('error') }}", "Error");
+    @elseif (session('info'))
+        toastr.info("{{ session('info') }}", "Info");
+    @elseif (session('warning'))
+        toastr.warning("{{ session('warning') }}", "Warning");
+    @endif
+
+    // Validation errors
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            toastr.error("{{ $error }}", "Validation Error");
+        @endforeach
+    @endif
+</script>
 
 @stack('scripts')
 <!--Start of Tawk.to Script-->

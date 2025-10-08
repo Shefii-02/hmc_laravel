@@ -3,12 +3,17 @@
 @section('content')
 
 <!-- Breadcrumb -->
-<div class="breadcroumb-area bread-bg py-5 text-white" style="background: linear-gradient(rgb(75 185 233 / 89%), rgb(142 199 66)), url('{{ $service['image'] }}') center / cover no-repeat;">
-    <div class="container">
-        <h1>{{ $service['title'] }}</h1>
-        <h6><a href="/" class="text-white text-decoration-none">Home</a> / {{ $service['title'] }}</h6>
-    </div>
-</div>
+
+   @php
+        $breadcrumbs = [
+            ['title' => 'Home', 'url' => '/'],
+            ['title' => 'Services', 'url' => '/services'], // optional
+            ['title' => $service['title'], 'url' => null], // current page
+        ];
+    @endphp
+
+    @include('frontend.breadcrumb', compact('breadcrumbs'))
+
 
 <!-- Service Details -->
 <section class="service-details-section section-padding pb-0">
@@ -17,7 +22,7 @@
             <!-- Main Content -->
             <div class="col-lg-8">
                 <div class="single-service">
-                    <img src="{{ $service['image'] }}" alt="{{ $service['title'] }}" class="img-fluid mb-3">
+                    <img src="{{ $service['image'] }}" alt="{{ $service['name'] }}" class="img-fluid mb-3">
                     <h2>{{ $service['title'] }}</h2>
                     <p>{{ $service['description'] }}</p>
                     <hr>
@@ -28,9 +33,10 @@
             <div class="col-lg-4">
                 <div class="service-list">
                     <h5>Services List</h5>
-                    @foreach($serviceList as $s)
-                        <a href="{{ url('service/' . $s['slug']) }}" class="{{ $slug == $s['slug'] ? 'active' : '' }}">
-                            {{ $s['title'] }} <span><i class="las la-arrow-right"></i></span>
+                    @foreach($serviceList ?? [] as $s)
+
+                        <a href="{{ route('service.single',$s->slug) }}" class="{{ $service->slug == $s->slug ? 'active' : '' }}">
+                            {{ $s->title }} <span><i class="las la-arrow-right"></i></span>
                         </a>
                     @endforeach
                 </div>

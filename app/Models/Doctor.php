@@ -26,7 +26,8 @@ class Doctor extends Model
         'email',
         'phone',
         'bio',
-        'is_active'
+        'is_active',
+        'slug'
     ];
 
     public function company()

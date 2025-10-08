@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Helpers\MediaHelper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
@@ -34,6 +35,7 @@ class ServiceController extends Controller
         $service = new Service();
         $service->company_id = 1;
         $service->title = $validated['title'];
+        $service->slug  = Str::slug($validated['title']);
         $service->description = $validated['description'] ?? null;
         $service->is_active = $validated['is_active'] ?? true;
 
@@ -83,6 +85,7 @@ class ServiceController extends Controller
 
         $service->update([
             'title' => $validated['title'],
+            'slug'  => Str::slug($validated['title']),
             'description' => $validated['description'] ?? null,
             'is_active' => $validated['is_active'] ?? true,
         ]);

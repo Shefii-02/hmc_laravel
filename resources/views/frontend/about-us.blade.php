@@ -102,10 +102,9 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm text-center p-3 h-100">
                         <img src="/assets/img/team/team_22_01_13_03_23_11.jpeg" class="rounded mx-auto mb-3"
-                            alt="Dr. Sarah Mathew">
-                        <h5 class="fw-bold mb-1">Dr. Sarah Mathew</h5>
-                        <small class="text-muted d-block mb-1">Cardiologist</small>
-                        <small class="text-secondary">Kozhikode, Kerala</small>
+                            alt="Mohammed Nasif K">
+                        <h5 class="fw-bold mb-1">Mohammed Nasif K</h5>
+                        <small class="text-muted d-block mb-1">Managing Director</small>
 
                     </div>
                 </div>
@@ -114,10 +113,9 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm text-center p-3 h-100">
                         <img src="/assets/img/team/team_22_01_13_03_25_04.jpeg" class="rounded mx-auto mb-3"
-                            alt="Dr. Arjun Nair">
-                        <h5 class="fw-bold mb-1">Dr. Arjun Nair</h5>
-                        <small class="text-muted d-block mb-1">Orthopedic Surgeon</small>
-                        <small class="text-secondary">Thrissur, Kerala</small>
+                            alt="Shahul Hameed">
+                        <h5 class="fw-bold mb-1">Shahul Hameed</h5>
+                        <small class="text-muted d-block mb-1">Director</small>
 
                     </div>
                 </div>
@@ -126,10 +124,9 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm text-center p-3 h-100">
                         <img src="/assets/img/team/team_22_01_13_03_24_30.jpeg" class="rounded mx-auto mb-3"
-                            alt="Dr. Aisha Rahman">
-                        <h5 class="fw-bold mb-1">Dr. Aisha Rahman</h5>
-                        <small class="text-muted d-block mb-1">Pediatrician</small>
-                        <small class="text-secondary">Malappuram, Kerala</small>
+                            alt="Salih Hameed">
+                        <h5 class="fw-bold mb-1">Salih Hameed</h5>
+                        <small class="text-muted d-block mb-1">Director</small>
 
                     </div>
                 </div>
@@ -138,10 +135,9 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm text-center p-3 h-100">
                         <img src="/assets/img/team/team_22_01_13_03_23_58.jpeg" class="rounded mx-auto mb-3"
-                            alt="Dr. Rajesh Kumar">
-                        <h5 class="fw-bold mb-1">Dr. Rajesh Kumar</h5>
-                        <small class="text-muted d-block mb-1">Neurologist</small>
-                        <small class="text-secondary">Kochi, Kerala</small>
+                            alt="Mohammed Saleeem">
+                        <h5 class="fw-bold mb-1">Mohammed Saleeem</h5>
+                        <small class="text-muted d-block mb-1">Director</small>
 
                     </div>
                 </div>

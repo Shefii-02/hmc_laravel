@@ -38,47 +38,14 @@
     <section class="py-5 bg-light">
         <div class="container">
             <div class="row g-4">
-
-                @php
-                    $doctors = [
-                        [
-                            'name' => 'Dr. Sarah Mathew',
-                            'specialty' => 'Cardiologist',
-                            'location' => 'Kozhikode, Kerala',
-                            'image' => 'https://malabarhospitals.com/manage1/doctorphoto/3899.jpg',
-                        ],
-                        [
-                            'name' => 'Dr. Arjun Nair',
-                            'specialty' => 'Orthopedic Surgeon',
-                            'location' => 'Thrissur, Kerala',
-                            'image' => 'https://malabarhospitals.com/manage1/doctorphoto/3899.jpg',
-                        ],
-                        [
-                            'name' => 'Dr. Aisha Rahman',
-                            'specialty' => 'Pediatrician',
-                            'location' => 'Malappuram, Kerala',
-                            'image' => 'https://malabarhospitals.com/manage1/doctorphoto/3899.jpg',
-                        ],
-                        [
-                            'name' => 'Dr. Rajesh Kumar',
-                            'specialty' => 'Neurologist',
-                            'location' => 'Kochi, Kerala',
-                            'image' => 'https://malabarhospitals.com/manage1/doctorphoto/3899.jpg',
-                        ],
-                        // add more doctors here
-                    ];
-                @endphp
-
                 @foreach ($doctors as $doctor)
                     <div class="col-md-6 col-lg-3">
                         <div class="card border-0 shadow-sm text-center p-3 h-100 team-card">
-                            <img src="{{ $doctor['image'] }}" class="rounded mx-auto mb-3"
-                                alt="{{ $doctor['name'] }}">
+                            <img src="{{ $doctor['photo_url'] }}" class="rounded mx-auto mb-3" alt="{{ $doctor['name'] }}">
                             <h5 class="fw-bold mb-1">{{ $doctor['name'] }}</h5>
-                            <small class="text-muted d-block mb-1">{{ $doctor['specialty'] }}</small>
-                            <div class="w-100 text-center">
-
-                            <a class="btn w-25 bg-primary text-light mt-2 btn-sm">Book <i class="bi bi-arrow-right"></i></a>
+                            <small class="text-muted d-block mb-1">{{ $doctor['designation'] }}</small>
+                            <div class="col-lg-12 text-center">
+                                <a href="#" class="text-light btn-sm btn btn-theme2 w-25 text-center">Book</a>
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@ class DepartmentController extends Controller
 {
     public function index()
     {
-        $departments = Department::orderBy('order','asc')->paginate('10');
+        $departments = Department::orderBy('order', 'asc')->paginate('10');
         return view('backend.departments.index', compact('departments'));
     }
 
@@ -44,13 +44,15 @@ class DepartmentController extends Controller
         $department = new Department();
         $department->company_id = 1;
         $department->name        = $validated['name'];
+        $department->slug        = Str::slug($validated['name']);
         $department->description = $validated['description'] ?? null;
         $department->order       = $validated['order'] ?? 0;
         $department->is_active      = $validated['status'] ?? 1;
 
         // Upload Icon
         if ($request->hasFile('thumbnail_file')) {
-            $iconId = MediaHelper::uploadCompanyFile($department->company_id,
+            $iconId = MediaHelper::uploadCompanyFile(
+                $department->company_id,
                 'departments/thumbaile',
                 $request->file('thumbnail_file')
             );
@@ -59,7 +61,8 @@ class DepartmentController extends Controller
 
         // Upload Main Image
         if ($request->hasFile('main_image_file')) {
-            $mainImageId = MediaHelper::uploadCompanyFile($department->company_id,
+            $mainImageId = MediaHelper::uploadCompanyFile(
+                $department->company_id,
                 'departments/main_images',
                 $request->file('main_image_file')
             );
@@ -107,7 +110,7 @@ class DepartmentController extends Controller
 
         // Replace main image
         if ($request->hasFile('main_image_file')) {
-            if ($department->main_image && $department->main_image != '')  {
+            if ($department->main_image && $department->main_image != '') {
 
                 MediaHelper::removeCompanyFile($department->main_image);
             }
@@ -118,6 +121,8 @@ class DepartmentController extends Controller
             );
             $department->main_image = $mainImageId;
         }
+
+        $department->slug = Str::slug($department->name);
 
         $department->save();
 

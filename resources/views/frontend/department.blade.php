@@ -3,12 +3,17 @@
 @section('content')
 
 <!-- Breadcrumb -->
-<div class="breadcroumb-area bread-bg py-5 text-white" style="background: linear-gradient(rgb(75 185 233 / 89%), rgb(142 199 66)), url('{{ $department['image'] }}') center / cover no-repeat;">
-    <div class="container">
-        <h1>{{ $department['title'] }}</h1>
-        <h6><a href="/" class="text-white text-decoration-none">Home</a> / {{ $department['title'] }}</h6>
-    </div>
-</div>
+
+   @php
+        $breadcrumbs = [
+            ['title' => 'Home', 'url' => '/'],
+            ['title' => 'Departments', 'url' => '/departments'], // optional
+            ['title' => $department['name'], 'url' => null], // current page
+        ];
+    @endphp
+
+    @include('frontend.breadcrumb', compact('breadcrumbs'))
+
 
 <!-- Department Details -->
 <section class="service-details-section section-padding pb-0">
@@ -29,8 +34,8 @@
                 <div class="service-list">
                     <h5>Department List</h5>
                     @foreach($deptList ?? [] as $d)
-                        <a href="{{ route('department.show', $d['slug']) }}" class="{{ $slug == $d['slug'] ? 'active' : '' }}">
-                            {{ $d['title'] }} <span><i class="las la-arrow-right"></i></span>
+                        <a href="{{ route('department-single', $d->slug) }}" class="{{ $department->slug == $d->slug ? 'active' : '' }}">
+                            {{ $d->name }} <span><i class="las la-arrow-right"></i></span>
                         </a>
                     @endforeach
                 </div>

@@ -10,91 +10,115 @@ use Illuminate\Support\Str;
 
 Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
     Route::get('/', 'HomepageController@index')->name('index');
+
+    Route::get('/about-us', function () {
+        return view('frontend.about-us');
+    });
+
+    Route::get('/contact-us', function () {
+        return view('frontend.contact-us');
+    });
+
+      Route::post('/contact-us', 'HomepageController@submitContactForm')->name('submit.contact.form');
+
+
+
+    Route::get('departments', 'HomepageController@departments')->name('departments');
+    Route::get('department/{slug}', 'HomepageController@departmentSingle')->name('department-single');
+
+    Route::get('services', 'HomepageController@services')->name('services');
+    Route::get('service/{slug}', 'HomepageController@serviceSingle')->name('service.single');
+
+
+    Route::get('our-doctors', 'HomepageController@ourDoctors')->name('our-doctors');
+    Route::get('doctor/{slug}', 'HomepageController@doctorSingle')->name('doctor.single');
+
+    Route::get('/blog', 'HomepageController@blog')->name('blog');
+    Route::get('/blog/{slug}', 'HomepageController@blogShow')->name('blog.show');
+
+    Route::get('/arogyam-njagalilude', 'HomepageController@blog')->name('arogyam-njagalilude');
+
+
+    Route::get('galleries', 'HomepageController@galleries')->name('galleries');
+    Route::get('gallery/{slug}', 'HomepageController@gallery')->name('gallery');
+
+    // Route::get('/department/{slug}', function ($slug) {
+    //     $slug = strtolower($slug); // lowercase the slug
+
+    //     $departments = [
+    //         'general-medicine' => ['title' => 'General Medicine', 'image' => 'https://via.placeholder.com/800x400', 'description' => '...'],
+    //         'dermatology' => ['title' => 'Dermatology', 'image' => '...', 'description' => '...'],
+    //         'orthopaedics' => ['title' => 'Orthopaedics', 'image' => '...', 'description' => '...'],
+    //         'ent' => ['title' => 'ENT', 'image' => '...', 'description' => '...'],
+    //         // ... add all departments in lowercase keys
+    //     ];
+
+    //     if (!isset($departments[$slug])) {
+    //         abort(404); // slug not found
+    //     }
+
+    //     $department = $departments[$slug];
+
+    //     return view('frontend.department', compact('department', 'slug'));
+    // })->name('department-single');
+
+
+    // Route::get('/service/{slug}', function ($slug) {
+    //     // Dummy services data
+    //     $services = [
+    //         'laboratory' => [
+    //             'title' => 'Laboratory',
+    //             'image' => 'https://via.placeholder.com/800x400',
+    //             'description' => 'Our laboratory provides a wide range of diagnostic tests with accurate results.',
+    //         ],
+    //         'pharmacy' => [
+    //             'title' => 'Pharmacy',
+    //             'image' => 'https://via.placeholder.com/800x400',
+    //             'description' => '24/7 pharmacy services with all essential medicines available.',
+    //         ],
+    //         'endoscopy' => [
+    //             'title' => 'Endoscopy',
+    //             'image' => 'https://via.placeholder.com/800x400',
+    //             'description' => 'Endoscopic procedures with advanced technology for accurate diagnosis.',
+    //         ],
+    //         'ecg' => [
+    //             'title' => 'ECG',
+    //             'image' => 'https://via.placeholder.com/800x400',
+    //             'description' => 'Electrocardiogram services to monitor heart health.',
+    //         ],
+    //         'emergency-care' => [
+    //             'title' => 'Emergency Care',
+    //             'image' => 'https://via.placeholder.com/800x400',
+    //             'description' => '24/7 emergency services with highly trained staff.',
+    //         ],
+    //         // Add more services here
+    //     ];
+
+    //     // Check if slug exists
+    //     if (!array_key_exists($slug, $services)) {
+    //         abort(404);
+    //     }
+
+    //     $service = $services[$slug];
+
+    //     // List of all services for sidebar or menu
+    //     $serviceList = array_map(fn($key, $val) => ['slug' => $key, 'title' => $val['title']], array_keys($services), $services);
+
+    //     return view('frontend.service', compact('service', 'serviceList', 'slug'));
+    // });
+
+
 });
 
-Route::get('/about-us', function () {
-    return view('frontend.about-us');
-});
-
-Route::get('/our-doctors', function () {
-    return view('frontend.our-doctors');
-});
-
-
-Route::get('/contact-us', function () {
-    return view('frontend.contact-us');
-});
 
 
 
-Route::get('/blog', function () {
-    return view('frontend.blog');
-});
 
-Route::get('/department/{slug}', function ($slug) {
-    $slug = strtolower($slug); // lowercase the slug
-
-    $departments = [
-        'general-medicine' => ['title' => 'General Medicine', 'image' => 'https://via.placeholder.com/800x400', 'description' => '...'],
-        'dermatology' => ['title' => 'Dermatology', 'image' => '...', 'description' => '...'],
-        'orthopaedics' => ['title' => 'Orthopaedics', 'image' => '...', 'description' => '...'],
-        'ent' => ['title' => 'ENT', 'image' => '...', 'description' => '...'],
-        // ... add all departments in lowercase keys
-    ];
-
-    if (!isset($departments[$slug])) {
-        abort(404); // slug not found
-    }
-
-    $department = $departments[$slug];
-
-    return view('frontend.department', compact('department', 'slug'));
-})->name('department-single');
+// Route::get('/blog', function () {
+//     return view('frontend.blog');
+// });
 
 
-Route::get('/service/{slug}', function ($slug) {
-    // Dummy services data
-    $services = [
-        'laboratory' => [
-            'title' => 'Laboratory',
-            'image' => 'https://via.placeholder.com/800x400',
-            'description' => 'Our laboratory provides a wide range of diagnostic tests with accurate results.',
-        ],
-        'pharmacy' => [
-            'title' => 'Pharmacy',
-            'image' => 'https://via.placeholder.com/800x400',
-            'description' => '24/7 pharmacy services with all essential medicines available.',
-        ],
-        'endoscopy' => [
-            'title' => 'Endoscopy',
-            'image' => 'https://via.placeholder.com/800x400',
-            'description' => 'Endoscopic procedures with advanced technology for accurate diagnosis.',
-        ],
-        'ecg' => [
-            'title' => 'ECG',
-            'image' => 'https://via.placeholder.com/800x400',
-            'description' => 'Electrocardiogram services to monitor heart health.',
-        ],
-        'emergency-care' => [
-            'title' => 'Emergency Care',
-            'image' => 'https://via.placeholder.com/800x400',
-            'description' => '24/7 emergency services with highly trained staff.',
-        ],
-        // Add more services here
-    ];
-
-    // Check if slug exists
-    if (!array_key_exists($slug, $services)) {
-        abort(404);
-    }
-
-    $service = $services[$slug];
-
-    // List of all services for sidebar or menu
-    $serviceList = array_map(fn($key, $val) => ['slug' => $key, 'title' => $val['title']], array_keys($services), $services);
-
-    return view('frontend.service', compact('service', 'serviceList', 'slug'));
-});
 
 // Route::get('/article', function () {
 //     // Increase time and memory limit for this operation
@@ -135,33 +159,33 @@ Route::get('/service/{slug}', function ($slug) {
 //     ]);
 // });
 
-function saveBase64Image($base64String, $folder = 'media')
-{
-        Log::info($base64String);
-    // Check if base64 string exists and looks valid
-    if (!$base64String || !str_contains($base64String, 'base64,')) {
+// function saveBase64Image($base64String, $folder = 'media')
+// {
+//     Log::info($base64String);
+//     // Check if base64 string exists and looks valid
+//     if (!$base64String || !str_contains($base64String, 'base64,')) {
 
-        return null;
-    }
+//         return null;
+//     }
 
-    // Extract image type and data
-    [$type, $data] = explode(';', $base64String);
-    [, $data] = explode(',', $data);
-    $imageType = str_replace('data:image/', '', $type);
-    $imageType = $imageType === 'jpeg' ? 'jpg' : $imageType;
+//     // Extract image type and data
+//     [$type, $data] = explode(';', $base64String);
+//     [, $data] = explode(',', $data);
+//     $imageType = str_replace('data:image/', '', $type);
+//     $imageType = $imageType === 'jpeg' ? 'jpg' : $imageType;
 
-    // Decode base64 data
-    $imageData = base64_decode($data);
+//     // Decode base64 data
+//     $imageData = base64_decode($data);
 
-    // Create unique filename
-    $fileName = Str::uuid() . '.' . $imageType;
+//     // Create unique filename
+//     $fileName = Str::uuid() . '.' . $imageType;
 
-    // Save to storage/app/public/media
-    Storage::disk('public')->put("{$folder}/{$fileName}", $imageData);
-    Log::info("storage/{$folder}/{$fileName}");
-    // Return full path for database storage
-    return "storage/{$folder}/{$fileName}";
-}
+//     // Save to storage/app/public/media
+//     Storage::disk('public')->put("{$folder}/{$fileName}", $imageData);
+//     Log::info("storage/{$folder}/{$fileName}");
+//     // Return full path for database storage
+//     return "storage/{$folder}/{$fileName}";
+// }
 
 
 //

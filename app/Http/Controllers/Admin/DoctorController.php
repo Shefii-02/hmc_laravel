@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Department;
 use App\Helpers\MediaHelper;
+use Illuminate\Support\Str;
 
 class DoctorController extends Controller
 {
@@ -50,6 +51,7 @@ class DoctorController extends Controller
             $doctor->photo = $photoId;
         }
 
+        $doctor->slug = Str::slug($doctor->name);
         $doctor->save();
 
         $doctor->doctor_department()->sync($request->input('department_ids', []));
@@ -91,6 +93,8 @@ class DoctorController extends Controller
             );
             $doctor->photo = $photoId;
         }
+
+        $doctor->slug = Str::slug($doctor->name);
 
         $doctor->save();
 
