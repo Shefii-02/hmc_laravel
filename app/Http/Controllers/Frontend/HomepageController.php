@@ -143,7 +143,7 @@ class HomepageController extends Controller
             'email' => 'required|email|max:255',
             'mobile' => 'required|max:10', // Adjust max length as needed
             'subject' => 'required|string|max:255',
-            // 'g-recaptcha-response' => 'required|captcha', // validate reCAPTCHA
+            'g-recaptcha-response' => 'required|captcha', // validate reCAPTCHA
         ]);
 
 
