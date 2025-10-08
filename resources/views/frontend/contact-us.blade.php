@@ -113,8 +113,9 @@
 
                                             <div class="col-md-6">
 
-                                                {!! NoCaptcha::display() !!}
                                                 {!! NoCaptcha::renderJs() !!}
+
+                                                {!! NoCaptcha::display() !!}
 
 
                                                 @if ($errors->has('g-recaptcha-response'))
