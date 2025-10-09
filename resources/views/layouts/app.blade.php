@@ -11,9 +11,7 @@
     <!-- Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
-    </script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
 
@@ -25,9 +23,9 @@
     {{-- <link href="{{ asset('assets/css/line-awesome.min.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.4-rc1/css/foundation.css">
     <!-- Animate CSS-->
-    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet"> --}}
     <!-- Bar Filler CSS -->
-    <link href="{{ asset('assets/css/barfiller.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/css/barfiller.css') }}" rel="stylesheet"> --}}
     <!-- Flaticon CSS -->
     {{-- <link href="{{ asset('assets/css/flaticon.css') }}" rel="stylesheet"> --}}
     <!-- Owl Carousel CSS -->
@@ -35,17 +33,15 @@
     <!-- Style CSS -->
     <link href="{{ asset('assets/css/style.css?v=1.2') }}" rel="stylesheet">
     <!-- Responsive CSS -->
-    <link href="{{ asset('assets/css/responsive.css?v=1.3') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/css/responsive.css?v=1.3') }}" rel="stylesheet"> --}}
     <!-- Font Awesome CSS-->
-    <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    {{-- <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet"> --}}
+    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"> --}}
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <style>
         .page-breadcrumb .breadcrumb-item a:hover {
@@ -314,6 +310,16 @@
             position: relative;
             z-index: 2;
         }
+
+        .btn:hover {
+            color: #ffffff;
+            background-color: #8ec640;
+            border-color: #ffffff;
+        }
+
+        .main-header .elementskit-navbar-nav>li>a.active {
+            color: #8ec640;
+        }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-136HE3VF4V"></script>
@@ -378,8 +384,8 @@
             <div class="xs-navbar clearfix  pr-5">
 
                 <div class="logo-outer pl-2">
-                    <div class="logo"><a href="/"><img src="{{ asset('assets/img/logo-white.png') }}"
-                                alt="t"></a></div>
+                    <div class="logo"><a href="/">
+                            <img src="{{ asset('assets/img/logo-white.png') }}" alt="t"></a></div>
                 </div>
 
                 <nav class="elementskit-navbar">
@@ -411,17 +417,22 @@
 
                         <!-- start menu item list -->
                         <ul class="elementskit-navbar-nav nav-alignment-dynamic">
-                            <li><a href="/">Home</a></li>
+                            <li><a class="{{ request()->routeIs('index') ? 'active' : '' }}" href="/">Home</a>
+                            </li>
 
                             <li class="elementskit-dropdown-has">
-                                <a href="about-us">About Us</a>
+                                <a href="about-us"
+                                    class="{{ request()->routeIs('our-doctors') || request()->routeIs('about-us') || request()->routeIs('contact-us') ? 'active' : '' }}">About
+                                    Us</a>
                                 <ul class="elementskit-dropdown elementskit-submenu-panel">
-                                    <li><a href="about-us">About Us</a></li>
-                                    <li><a href="our-doctors">Our Doctors</a></li>
+                                    <li><a class="{{ request()->routeIs('about-us') ? 'active' : '' }}"
+                                            href="/about-us">About Us</a></li>
+                                    <li><a class="{{ request()->routeIs('our-doctors') ? 'active' : '' }}"
+                                            href="/our-doctors">Our Doctors</a></li>
                                     <!--<li><a href="Careers">Careers</a></li>-->
-                                    <li><a href="contact-us">Contact Us</a></li>
-                                    {{-- <li><a href="lab-result">Lab Result</a></li>
-                                    <li><a href="book-now">Book an Appointment</a></li> --}}
+                                    <li><a class="{{ request()->routeIs('contact-us') ? 'active' : '' }}"
+                                            href="/contact-us">Contact Us</a></li>
+
                                 </ul>
                             </li>
                             <style>
@@ -437,30 +448,34 @@
                             </style>
 
                             <li class="elementskit-dropdown-has">
-                                <a href="#">Departments</a>
-
-
+                                <a href="#"
+                                    class="{{ request()->routeIs('departments') ? 'active' : '' }}">Departments</a>
                                 <ul
                                     class="elementskit-dropdown departments elementskit-submenu-panel d-flex gap-3 flex-wrap">
                                     @foreach (getDepartments() as $dept)
-                                        <li><a href="/department/{{ $dept->slug }}">{{ $dept->name }}</a></li>
+                                        <li><a class="{{ request()->routeIs('department-single.*') ? 'active' : '' }}"
+                                                href="/department/{{ $dept->slug }}">{{ $dept->name }}</a></li>
                                     @endforeach
 
                                 </ul>
                             </li>
 
-                            <li class="elementskit-dropdown-has"><a href="#">Services</a>
+                            <li class="elementskit-dropdown-has">
+                                <a href="#"
+                                    class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
                                 <ul
                                     class="elementskit-dropdown services elementskit-submenu-panel d-flex gap-3 flex-wrap">
                                     @foreach (getServices() as $srv)
-                                        <li><a href="/service/{{ $srv->slug }}">{{ $srv->title }}</a></li>
+                                        <li><a class="{{ request()->routeIs('service.single.*') ? 'active' : '' }}"
+                                                href="/service/{{ $srv->slug }}">{{ $srv->title }}</a></li>
                                     @endforeach
-
-
                                 </ul>
                             </li>
-                            <li><a href="{{ route('galleries') }}">Gallery</a></li>
-                            <li><a href="/blog">Blog</a></li>
+                            <li><a class="{{ request()->routeIs('galleries') || request()->routeIs('gallery') ? 'active' : '' }}"
+                                    href="{{ route('galleries') }}">Gallery</a></li>
+                            <li><a class="{{ request()->routeIs('blog') || request()->routeIs('blog.show') ? 'active' : '' }}"
+                                    href="/blog">Blog</a></li>
+
                             <li class="d-block d-lg-none text-center">
                                 <a href="{{ route('arogyam-njagalilude', ['tab' => 'articles']) }}">
                                     <img src="{{ asset('assets/img/arogyaham.png') }}" class="mt-1 mb-2">
@@ -507,8 +522,8 @@
 <main>
     @yield('content')
 </main>
-<div class="sidequteo d-block d-lg-none"><a href="/book-now" class='text-light'>Book Now</a></div>
-<div class="sidequteo2  d-block d-lg-none"><a href="/lab-result" class='text-light'>Lab Result</a></div>
+<div class="sidequteo "><a href="/book-now" class='text-light'>Book Now</a></div>
+<div class="sidequteo2 "><a href="/lab-result" class='text-light'>Lab Result</a></div>
 
 <style>
     .sidequteo {
@@ -624,31 +639,35 @@
 
 <!-- Scroll Top Area -->
 <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-<script src="{{ asset('assets/js/nav-tool.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/nav-tool.js') }}"></script> --}}
 
 <!-- Popper JS -->
-<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/popper.min.js') }}"></script> --}}
 
 <!-- Wow JS -->
-<script src="{{ asset('assets/js/wow.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/wow.min.js') }}"></script> --}}
 <!-- Way Points JS -->
-<script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script> --}}
 <!-- Counter Up JS -->
-<script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script> --}}
 <!-- Owl Carousel JS -->
 {{-- <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script> --}}
 <!-- Isotope JS -->
-<script src="{{ asset('assets/js/isotope-3.0.6-min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/isotope-3.0.6-min.js') }}"></script> --}}
 <!-- Magnific Popup JS -->
-<script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script> --}}
 <!-- Sticky JS -->
-<script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script> --}}
 <!-- Progress Bar JS -->
-<script src="{{ asset('assets/js/jquery.barfiller.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/jquery.barfiller.js') }}"></script> --}}
 <!-- Main JS -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
 

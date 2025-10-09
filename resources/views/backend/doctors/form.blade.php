@@ -51,7 +51,7 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label">Designation</label>
+                                    <label class="form-label">Specialization</label>
                                     <input type="text" name="designation" class="form-control"
                                         value="{{ old('designation', $doctor->designation ?? '') }}">
                                 </div>
@@ -63,7 +63,9 @@
                                             @foreach ($departments as $key => $dept)
                                                 <div class="form-check form-switch col-4">
 
-                                                    <input class="form-check-input" {{ isset($doctor) && in_array($dept->name,$doctor->departments) ? 'checked' : '' }} value="{{ $dept->id }}" name="department_ids[]" type="checkbox"
+                                                    <input class="form-check-input"
+                                                        {{ isset($doctor) && in_array($dept->name, $doctor->departments) ? 'checked' : '' }}
+                                                        value="{{ $dept->id }}" name="department_ids[]" type="checkbox"
                                                         id="dept_{{ $key }}">
                                                     <label class="form-check-label"
                                                         for="dept_{{ $key }}">{{ $dept->name }}</label>
@@ -88,6 +90,52 @@
                                     <input type="number" name="experience_years" class="form-control"
                                         value="{{ old('experience_years', $doctor->experience_years ?? '') }}">
                                 </div>
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">Available Time Slots</label>
+                                    <div class="card p-3">
+                                        @php
+                                            $days = [
+                                                'Monday',
+                                                'Tuesday',
+                                                'Wednesday',
+                                                'Thursday',
+                                                'Friday',
+                                                'Saturday',
+                                                'Sunday',
+                                            ];
+                                        @endphp
+
+                                        @foreach ($days as $day)
+                                            <div class="mb-3 border rounded p-3">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h6 class="mb-0">{{ $day }}</h6>
+                                                    <button type="button" class="btn btn-sm btn-outline-primary add-slot"
+                                                        data-day="{{ $day }}">
+                                                        + Add Slot
+                                                    </button>
+                                                </div>
+
+                                                <div class="time-slots mt-2" data-day="{{ $day }}">
+                                                    @if (isset($doctor))
+                                                        @foreach ($doctor->timeSlots->where('day', $day) as $slot)
+                                                            <div class="d-flex gap-2 mb-2 slot-item">
+                                                                <input type="time"
+                                                                    name="time_slots[{{ $day }}][start][]"
+                                                                    value="{{ $slot->start_time }}" class="form-control">
+                                                                <input type="time"
+                                                                    name="time_slots[{{ $day }}][end][]"
+                                                                    value="{{ $slot->end_time }}" class="form-control">
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-danger remove-slot">×</button>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
 
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label">Description</label>
@@ -119,3 +167,32 @@
         </div>
     </div>
 @endsection
+
+
+@push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll('.add-slot').forEach(button => {
+                button.addEventListener('click', function() {
+                    let day = this.dataset.day;
+                    let container = document.querySelector(`.time-slots[data-day="${day}"]`);
+
+                    let html = `
+                <div class="d-flex gap-2 mb-2 slot-item">
+                    <input type="time" name="time_slots[${day}][start][]" class="form-control">
+                    <input type="time" name="time_slots[${day}][end][]" class="form-control">
+                    <button type="button" class="btn btn-sm btn-danger remove-slot">×</button>
+                </div>
+            `;
+                    container.insertAdjacentHTML('beforeend', html);
+                });
+            });
+
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-slot')) {
+                    e.target.closest('.slot-item').remove();
+                }
+            });
+        });
+    </script>
+@endpush

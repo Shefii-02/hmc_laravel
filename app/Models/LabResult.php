@@ -23,4 +23,10 @@ class LabResult extends Model
     {
         return $this->belongsTo(MediaFile::class, 'result_file');
     }
+
+     public function getFileUrlAttribute()
+    {
+        return $this->file ? asset('storage/' . $this->file->file_path) : asset('assets/images/avatar-1.png');
+    }
+
 }

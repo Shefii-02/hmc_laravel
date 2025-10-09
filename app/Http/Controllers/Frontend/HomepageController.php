@@ -25,8 +25,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use App\Mail\ContactFormSubmitted;
-
-
+use App\Models\LabResult;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class HomepageController extends Controller
@@ -186,6 +186,140 @@ class HomepageController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Email sending failed: ' . $e->getMessage());
         }
+    }
 
+    public function getAvailability(Doctor $doctor, $date)
+    {
+        $dayName = strtolower(date('l', strtotime($date))); // monday, tuesday etc.
+
+        $availability = $doctor->availabilities()
+            ->where('day', $dayName)
+            ->get(['start_time', 'end_time']);
+
+        return response()->json($availability);
+    }
+    public function getAvailableDays(Doctor $doctor)
+    {
+        // Return unique days where doctor has availability
+        $days = $doctor->availabilities()
+            ->select('day')
+            ->distinct()
+            ->pluck('day');
+
+        return response()->json($days);
+    }
+
+    public function getAvailableSlots($doctorId, $date)
+    {
+        $doctor = Doctor::findOrFail($doctorId);
+        $dayName = strtolower(Carbon::parse($date)->format('l'));
+        $slots = $doctor->availabilities()->where('day', $dayName)->get(['start_time', 'end_time']);
+        return response()->json($slots);
+    }
+
+
+
+    public function bookNow()
+    {
+        $doctors =  Doctor::where('is_active', 1)->orderBy('order', 'ASC')->get();
+        return view('frontend.book-now', compact('doctors'));
+    }
+    public function bookNowStore(Request $request)
+    {
+        $validated = $request->validate([
+            'doctor_id' => 'required|exists:doctors,id',
+            'appointment_date' => 'required',
+            'appointment_time' => 'required',
+            'notes' => 'nullable|string',
+            'full_name' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:20',
+            'email' => 'nullable|email|max:255',
+
+        ]);
+
+        // dd($request->all());
+
+        try {
+
+            // Create or check existing patient by phone/email
+            $patientId = $this->checkExistingCutomer(
+                $request->full_name,
+                $request->phone,
+                $request->email
+            );
+
+            // ✅ Prepare appointment data
+            $appointmentData = [
+                'company_id'       => 1,
+                'patient_id'       => $patientId,
+                'doctor_id'        => $request->doctor_id,
+                'appointment_date' => $request->appointment_date,
+                'appointment_time' => $request->appointment_time,
+                'status'           => 'pending',
+                'notes'            => $request->notes,
+            ];
+
+            Appointment::create($appointmentData);
+
+            return redirect()->back()->with('success', 'Appointment booked successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Failed to create appointment: ' . $e->getMessage());
+        }
+    }
+    public function labResult()
+    {
+        return view('frontend.lab-result');
+    }
+    public function labResultGet(Request $request)
+    {
+        $validated = $request->validate([
+            'full_name' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:20',
+            'email' => 'nullable|email|max:255',
+        ]);
+
+        $full_name = $request->full_name;
+        $phone     = $request->phone;
+        $email     = $request->email;
+
+         $patient = Patient::where('phone', $phone)
+            ->where('email', $email)
+            ->where('full_name', $full_name)
+            ->first();
+
+        if($patient){
+            $results = LabResult::where('patient_id',$patient->id)->get();
+            return view('frontend.lab-result-list',compact('results'));
+        }
+        else{
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Patient Information Incorrect');
+        }
+
+    }
+
+    private function checkExistingCutomer($name, $phone, $email)
+    {
+        $patient = Patient::where('phone', $phone)
+            ->where('email', $email)
+            ->where('full_name', $name)
+            ->first();
+
+        if ($patient) {
+            return $patient->id;
+        }
+
+        // Create new patient
+        $newPatient = Patient::create([
+            'company_id' => 1,
+            'full_name'  => $name,
+            'phone'      => $phone,
+            'email'      => $email,
+        ]);
+
+        return $newPatient->id;
     }
 }

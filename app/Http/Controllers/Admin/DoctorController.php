@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Department;
 use App\Helpers\MediaHelper;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class DoctorController extends Controller
@@ -52,6 +53,26 @@ class DoctorController extends Controller
         }
 
         $doctor->slug = Str::slug($doctor->name);
+
+        $doctor->timeSlots()->delete(); // clear old slots first
+
+        if ($request->has('time_slots')) {
+            foreach ($request->time_slots as $day => $slots) {
+                $startTimes = $slots['start'] ?? [];
+                $endTimes = $slots['end'] ?? [];
+
+                foreach ($startTimes as $index => $start) {
+                    if (!empty($start) && !empty($endTimes[$index])) {
+                        $doctor->timeSlots()->create([
+                            'day' => $day,
+                            'start_time' => $start,
+                            'end_time' => $endTimes[$index],
+                        ]);
+                    }
+                }
+            }
+        }
+
         $doctor->save();
 
         $doctor->doctor_department()->sync($request->input('department_ids', []));
@@ -96,6 +117,25 @@ class DoctorController extends Controller
 
         $doctor->slug = Str::slug($doctor->name);
 
+        $doctor->timeSlots()->delete(); // clear old slots first
+
+        if ($request->has('time_slots')) {
+            foreach ($request->time_slots as $day => $slots) {
+                $startTimes = $slots['start'] ?? [];
+                $endTimes = $slots['end'] ?? [];
+
+                foreach ($startTimes as $index => $start) {
+                    if (!empty($start) && !empty($endTimes[$index])) {
+                        $doctor->timeSlots()->create([
+                            'day' => $day,
+                            'start_time' => $start,
+                            'end_time' => $endTimes[$index],
+                        ]);
+                    }
+                }
+            }
+        }
+
         $doctor->save();
 
         $doctor->doctor_department()->sync($request->input('department_ids', []));
@@ -114,4 +154,43 @@ class DoctorController extends Controller
 
         return redirect()->route('admin.doctors.index')->with('success', 'Doctor deleted successfully.');
     }
+
+     public function getAvailability(Doctor $doctor, $date)
+    {
+        $dayName = strtolower(date('l', strtotime($date))); // monday, tuesday etc.
+
+        $availability = $doctor->availabilities()
+            ->where('day', $dayName)
+            ->get(['start_time', 'end_time']);
+
+        return response()->json($availability);
+    }
+    public function getAvailableDays(Doctor $doctor)
+    {
+        // Return unique days where doctor has availability
+        $days = $doctor->availabilities()
+            ->select('day')
+            ->distinct()
+            ->pluck('day');
+
+        return response()->json($days);
+    }
+
+    public function getAvailableSlots($doctorId, $date)
+    {
+        $doctor = Doctor::findOrFail($doctorId);
+        $dayName = strtolower(Carbon::parse($date)->format('l'));
+        $slots = $doctor->availabilities()->where('day', $dayName)->get(['start_time', 'end_time']);
+        return response()->json($slots);
+    }
+
+
+    // public function getAvailableSlots(Doctor $doctor, $day)
+    // {
+    //     $slots = $doctor->availabilities()
+    //         ->where('day', strtolower($day))
+    //         ->get(['id', 'start_time', 'end_time']);
+
+    //     return response()->json($slots);
+    // }
 }

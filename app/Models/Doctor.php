@@ -43,7 +43,7 @@ class Doctor extends Model
 
     public function getDepartmentsAttribute()
     {
-        return $this->doctor_department? $this->doctor_department->pluck('name')->toArray() : [];
+        return $this->doctor_department ? $this->doctor_department->pluck('name')->toArray() : [];
     }
     public function photoFile()
     {
@@ -53,5 +53,15 @@ class Doctor extends Model
     public function getPhotoUrlAttribute()
     {
         return $this->photoFile ? asset('storage/' . $this->photoFile->file_path) : asset('assets/images/avatar-1.png');
+    }
+
+    public function timeSlots()
+    {
+        return $this->hasMany(DoctorTimeSlot::class);
+    }
+
+    public function availabilities()
+    {
+        return $this->hasMany(DoctorTimeSlot::class);
     }
 }

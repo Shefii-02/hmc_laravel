@@ -18,7 +18,7 @@
                     <div class="info-content-area">
                         <div class="section-title">
                             <h6>About Us</h6>
-                            <h2>We're take care of your <b>healthy health</b></h2>
+                            <h2 class="text-black">We're take care of your <b>healthy health</b></h2>
                         </div>
                         <p>&nbsp;&nbsp;
                             HAYATH MEDICARE Super Speciality Hospital and Diagnostic Centre was established in the year 2020
@@ -70,7 +70,7 @@
                     <div class="info-content-area">
                         <div class="section-title">
                             <h6>Let's to Know Us</h6>
-                            <h2><b>Medicine made with care.</b></h2>
+                            <h2 class="text-black"><b>Medicine made with care.</b></h2>
                         </div>
                         <div class="info-content-area">
                             <p class="highlight">Currently we have an excellent crew consisting of 8 Doctors,</p>

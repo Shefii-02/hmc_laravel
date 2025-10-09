@@ -36,7 +36,8 @@ class AppointmentController extends Controller
         $validated = $request->validate([
             'patient_id' => 'nullable|exists:patients,id',
             'doctor_id' => 'required|exists:doctors,id',
-            'appointment_time' => 'required|date',
+            'appointment_date' => 'required',
+            'appointment_time' => 'required',
             'status' => 'required|in:pending,confirmed,completed,cancelled',
             'notes' => 'nullable|string',
             'full_name' => 'nullable|string|max:255',
@@ -46,6 +47,8 @@ class AppointmentController extends Controller
             'new_mobile' => 'nullable|string|max:20',
             'new_email' => 'nullable|email|max:255',
         ]);
+
+        // dd($request->all());
 
         try {
             // ✅ Determine Patient ID (existing or new)
@@ -66,6 +69,7 @@ class AppointmentController extends Controller
                 'company_id'       => 1,
                 'patient_id'       => $patientId,
                 'doctor_id'        => $request->doctor_id,
+                'appointment_date' => $request->appointment_date,
                 'appointment_time' => $request->appointment_time,
                 'status'           => $request->status,
                 'notes'            => $request->notes,
@@ -118,7 +122,8 @@ class AppointmentController extends Controller
         $validated = $request->validate([
             'patient_id' => 'nullable|exists:patients,id',
             'doctor_id' => 'required|exists:doctors,id',
-            'appointment_time' => 'required|date',
+            'appointment_time' => 'required',
+            'appointment_date' => 'required',
             'status' => 'required|in:pending,confirmed,completed,cancelled',
             'notes' => 'nullable|string',
         ]);

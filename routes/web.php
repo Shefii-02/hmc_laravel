@@ -13,13 +13,13 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
 
     Route::get('/about-us', function () {
         return view('frontend.about-us');
-    });
+    })->name('about-us');
 
     Route::get('/contact-us', function () {
         return view('frontend.contact-us');
-    });
+    })->name('contact-us');
 
-      Route::post('/contact-us', 'HomepageController@submitContactForm')->name('submit.contact.form');
+    Route::post('/contact-us', 'HomepageController@submitContactForm')->name('submit.contact.form');
 
 
 
@@ -31,12 +31,20 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
 
 
     Route::get('our-doctors', 'HomepageController@ourDoctors')->name('our-doctors');
+    Route::get('/doctor/{doctor}/days', 'HomepageController@getAvailableDays')->name('doctor.days');
+    Route::get('/doctor/{doctor}/day/{day}', 'HomepageController@getAvailableSlots')->name('doctor.slots');
+
     Route::get('doctor/{slug}', 'HomepageController@doctorSingle')->name('doctor.single');
 
     Route::get('/blog', 'HomepageController@blog')->name('blog');
     Route::get('/blog/{slug}', 'HomepageController@blogShow')->name('blog.show');
 
     Route::get('/arogyam-njagalilude', 'HomepageController@blog')->name('arogyam-njagalilude');
+
+    Route::get('book-now', 'HomepageController@bookNow')->name('book-now');
+    Route::post('book-now', 'HomepageController@bookNowStore')->name('book-now.store');
+    Route::get('lab-result', 'HomepageController@labResult')->name('lab-result');
+    Route::post('lab-result', 'HomepageController@labResultGet')->name('lab-result-get');
 
 
     Route::get('galleries', 'HomepageController@galleries')->name('galleries');
@@ -197,6 +205,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/home', 'DashboardController@index')->name('home');
 
     Route::resource('banners', BannerController::class);
+
+    Route::get('/doctor/{doctor}/days', 'DoctorController@getAvailableDays')->name('doctor.days');
+    Route::get('/doctor/{doctor}/day/{day}', 'DoctorController@getAvailableSlots')->name('doctor.slots');
+
     Route::resource('doctors', DoctorController::class);
     Route::resource('departments', DepartmentController::class);
     Route::resource('services', ServiceController::class);
@@ -208,6 +220,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
         Route::resource('articles', ArticleController::class);
         Route::resource('vlogs', VlogController::class);
     });
+
 
     Route::get('patients/search', "AppointmentController@search")->name('patients.search');
     Route::post('patients/store-ajax', "AppointmentController@storeAjax")->name('patients.storeAjax');
