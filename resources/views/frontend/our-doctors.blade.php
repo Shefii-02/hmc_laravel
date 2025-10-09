@@ -45,7 +45,8 @@
                             <h5 class="fw-bold mb-1">{{ $doctor['name'] }}</h5>
                             <small class="text-muted d-block mb-1">{{ $doctor['designation'] }}</small>
                             <div class="col-lg-12 text-center">
-                                <a href="#" class="text-light btn-sm btn btn-theme2 w-25 text-center">Book</a>
+                                <a href="{{ route('doctor.single', $doctor->slug) }}"
+                                    class="text-light btn-sm btn btn-theme2 w-25 text-center">Book</a>
                             </div>
                         </div>
                     </div>

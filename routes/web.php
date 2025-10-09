@@ -35,6 +35,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
     Route::get('/doctor/{doctor}/day/{day}', 'HomepageController@getAvailableSlots')->name('doctor.slots');
 
     Route::get('doctor/{slug}', 'HomepageController@doctorSingle')->name('doctor.single');
+    Route::post('doctor/{slug}', 'HomepageController@doctorSingleAppointment')->name('doctor.appointment');
 
     Route::get('/blog', 'HomepageController@blog')->name('blog');
     Route::get('/blog/{slug}', 'HomepageController@blogShow')->name('blog.show');

@@ -47,7 +47,6 @@ class HomepageController extends Controller
 
     public function ourDoctors()
     {
-
         $doctors = Doctor::where('is_active', 1)->orderBy('order', 'ASC')->get();
         return view('frontend.our-doctors', compact('doctors'));
     }
@@ -74,7 +73,53 @@ class HomepageController extends Controller
         $serviceList = Service::where('is_active', 1)->orderBy('order', 'ASC')->get();
         return view('frontend.service', compact('service', 'serviceList'));
     }
-    public function doctorSingle() {}
+    public function doctorSingle($slug)
+    {
+        $doctor = Doctor::where('slug', $slug)->first() ?? abort(404);
+        return view('frontend.doctor', compact('doctor'));
+    }
+    public function doctorSingleAppointment($slug,Request $request) {
+        $doctor = Doctor::where('slug', $slug)->first() ?? abort(404);
+         $validated = $request->validate([
+            'appointment_date' => 'required',
+            'appointment_time' => 'required',
+            'notes' => 'nullable|string',
+            'full_name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
+        ]);
+
+        try {
+
+            // Create or check existing patient by phone/email
+            $patientId = $this->checkExistingCutomer(
+                $request->full_name,
+                $request->phone,
+                $request->email
+            );
+
+            // ✅ Prepare appointment data
+            $appointmentData = [
+                'company_id'       => 1,
+                'patient_id'       => $patientId,
+                'doctor_id'        => $doctor->id,
+                'appointment_date' => $request->appointment_date,
+                'appointment_time' => $request->appointment_time,
+                'status'           => 'pending',
+                'notes'            => $request->notes,
+            ];
+
+            Appointment::create($appointmentData);
+
+            return redirect()->back()->with('success', 'Appointment booked successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Failed to create appointment: ' . $e->getMessage());
+        }
+
+    }
+
 
     public function blog(Request $request)
     {
@@ -231,9 +276,9 @@ class HomepageController extends Controller
             'appointment_date' => 'required',
             'appointment_time' => 'required',
             'notes' => 'nullable|string',
-            'full_name' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:20',
-            'email' => 'nullable|email|max:255',
+            'full_name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
 
         ]);
 
@@ -284,21 +329,19 @@ class HomepageController extends Controller
         $phone     = $request->phone;
         $email     = $request->email;
 
-         $patient = Patient::where('phone', $phone)
+        $patient = Patient::where('phone', $phone)
             ->where('email', $email)
             ->where('full_name', $full_name)
             ->first();
 
-        if($patient){
-            $results = LabResult::where('patient_id',$patient->id)->get();
-            return view('frontend.lab-result-list',compact('results'));
-        }
-        else{
+        if ($patient) {
+            $results = LabResult::where('patient_id', $patient->id)->get();
+            return view('frontend.lab-result-list', compact('results'));
+        } else {
             return redirect()->back()
                 ->withInput()
                 ->with('error', 'Patient Information Incorrect');
         }
-
     }
 
     private function checkExistingCutomer($name, $phone, $email)

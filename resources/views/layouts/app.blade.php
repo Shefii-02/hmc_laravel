@@ -606,14 +606,14 @@
                     <h5 class="text-light mb-2">Quick Links</h5>
                     <ul class='text-left services-links'>
                         <li>
-                            <a href="#"><span>-</span> About us</a>
+                            <a href="{{ route('about-us') }}"><span>-</span> About us</a>
                             {{-- <a href="#"><span>-</span> Career</a> --}}
-                            <a href="#"><span>-</span> Doctors</a>
-                            <a href="#"><span>-</span> Contact</a>
-                            <a href="#"><span>-</span> Gallery</a>
-                            <a href="#"><span>-</span> News & Events</a>
-                            <a href="#"><span>-</span> Get a Appointment</a>
-                            <a href="#"><span>-</span> Lab Result</a>
+                            <a href="{{ route('our-doctors') }}"><span>-</span> Doctors</a>
+                            <a href="{{ route('contact-us') }}"><span>-</span> Contact</a>
+                            <a href="{{ route('galleries') }}"><span>-</span> Gallery</a>
+                            <a href="{{ route('blog') }}"><span>-</span> News & Events</a>
+                            <a href="{{ route('book-now') }}"><span>-</span> Get a Appointment</a>
+                            <a href="{{ route('lab-result') }}"><span>-</span> Lab Result</a>
                         </li>
                     </ul>
 
