@@ -24,7 +24,7 @@
                 <div class="row no-gutters">
                     <div class="col-lg-5">
                         <div class="about-bg-wrapper position-relative">
-                            <img class="rounded shadow-lg" src="/assets/images/hayath-about.webp">
+                            <img class="rounded shadow-lg" src="/assets/images/about-img-1.webp">
                             <div class="player-wrapper position-absolute">
                                 <div class="player-icon">
                                     <div class="triangle"></div>

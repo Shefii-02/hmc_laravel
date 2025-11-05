@@ -42,7 +42,7 @@
                         <img src="assets/img/about/about-men.png" alt="">
                     </div> --}}
                     <div class="about-bg-wrapper position-relative">
-                        <img class="rounded shadow-lg" src="/assets/images/hayath-about.webp">
+                        <img class="rounded shadow-lg" src="/assets/images/about-img-1.webp">
                         <div class="player-wrapper position-absolute">
                             <div class="player-icon">
                                 <div class="triangle"></div>
@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="about-bg">
-                        <img src="assets/images/hayath-about2.webp" class="rounded" alt="">
+                        <img src="/assets/images/about-img-2.webp" class="rounded" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
