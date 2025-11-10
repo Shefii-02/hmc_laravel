@@ -587,7 +587,7 @@
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12 ">
 
                     <div class="social-area text-center mb-3">
-                        <img src="{{ asset('assets/img/logo-white.png') }}" alt="-logo"><br>
+                        <img src="{{ asset('assets/img/logo-black.png') }}" alt="-logo"><br>
                         <ul class="text-left ms-3">
                             <li>
                                 <span class="text-white">
