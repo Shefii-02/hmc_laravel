@@ -51,6 +51,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
     Route::get('galleries', 'HomepageController@galleries')->name('galleries');
     Route::get('gallery/{slug}', 'HomepageController@gallery')->name('gallery');
 
+    Route::get('carrier', 'HomepageController@carrier')->name('carrier');
+
+
+
     // Route::get('/department/{slug}', function ($slug) {
     //     $slug = strtolower($slug); // lowercase the slug
 

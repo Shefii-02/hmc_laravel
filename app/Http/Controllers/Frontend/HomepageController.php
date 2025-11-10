@@ -78,9 +78,10 @@ class HomepageController extends Controller
         $doctor = Doctor::where('slug', $slug)->first() ?? abort(404);
         return view('frontend.doctor', compact('doctor'));
     }
-    public function doctorSingleAppointment($slug,Request $request) {
+    public function doctorSingleAppointment($slug, Request $request)
+    {
         $doctor = Doctor::where('slug', $slug)->first() ?? abort(404);
-         $validated = $request->validate([
+        $validated = $request->validate([
             'appointment_date' => 'required',
             'appointment_time' => 'required',
             'notes' => 'nullable|string',
@@ -117,13 +118,12 @@ class HomepageController extends Controller
                 ->withInput()
                 ->with('error', 'Failed to create appointment: ' . $e->getMessage());
         }
-
     }
 
 
     public function blog(Request $request)
     {
-        $tab = $request->query('tab', 'articles'); // Default tab = vlogs
+        $tab = $request->query('tab', 'news-and-events'); // Default tab = vlogs
 
         switch ($tab) {
             case 'articles':
@@ -145,6 +145,11 @@ class HomepageController extends Controller
         ];
 
         return view('frontend.blog', compact('items', 'tabs', 'tab'));
+    }
+
+    public function  carrier()
+    {
+        return view('frontend.carrier');
     }
 
 

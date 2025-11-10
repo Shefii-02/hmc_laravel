@@ -17,7 +17,7 @@
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="info-content-area">
                         <div class="section-title">
-                            <h6>About Us</h6>
+                            <h6 class="">About Us</h6>
                             <h2 class="text-black">We're take care of your <b>healthy health</b></h2>
                         </div>
                         <p>&nbsp;&nbsp;

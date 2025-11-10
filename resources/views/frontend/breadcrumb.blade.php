@@ -1,5 +1,5 @@
 <!-- Breadcrumb Section -->
-<div class="page-breadcrumb py-5 text-white" style="background: linear-gradient(rgb(75 185 233 / 89%), rgb(142 199 66))">
+<div class="page-breadcrumb py-5 text-white">
   <div class="container text-center">
     <h1 class="fw-bold mb-2">{{ $breadcrumbs[count($breadcrumbs)-1]['title'] }}</h1>
     <nav aria-label="breadcrumb">

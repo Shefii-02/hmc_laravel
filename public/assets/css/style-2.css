@@ -141,7 +141,7 @@ img{
 
 /*=== Header Upper ===*/
 
-.main-header .header-upper .logo-outer:before{
+/* .main-header .header-upper .logo-outer:before{
 	position:absolute;
 	content:'';
 	right:-40px;
@@ -154,7 +154,7 @@ img{
 	transform: skewX(-25deg);
 	border-right:2px solid #4bb9ea;
 	box-shadow: 2px 0 4px 0px #8ec642;
-}
+} */
 
 .main-header .header-upper{
 	position:relative;
@@ -171,9 +171,9 @@ img{
 	position:relative;
 	float: left;
 	z-index:25;
-	padding-top:40px;
-	margin-top:-44px;
-	padding-bottom:18px;
+	/* padding-top:40px;
+	margin-top:-44px; */
+	/* padding-bottom:18px; */
 	background-color:#ffffff;
 	-webkit-transition:all 300ms ease;
 	-moz-transition:all 300ms ease;
@@ -190,7 +190,7 @@ img{
 .main-header .logo-outer .logo img{
 	position:relative;
 	display:inline-block;
-	max-width:100%;
+	max-width:250px;
 }
 
 .main-header .header-upper .nav-outer{

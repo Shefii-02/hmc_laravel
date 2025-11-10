@@ -105,46 +105,60 @@
                                 <div class ="quote">
 
 
-                                    <h1 class="text-black fw-bold we-are-provide">We are Provide</h1>
+                                    <h1 class="text-black fw-bold we-are-provide">WE CARE FOR YOU</h1>
                                     <h1 class="text-black">
-                                        <span class="txt-rotate" data-period="1000"
-                                            data-rotate='[ "Emergency Medical Care 24/7.", "Quality Health facility.", "Qualified Doctors.", "Patient Friendly" ]'></span>
+                                        {{-- "Quality Health facility.", "Qualified Doctors.", "Patient Friendly" --}}
+                                        <span class="txt-rotate" data-period="300"
+                                            data-rotate='[ "Emergency Trauma care 24*7" ]'></span>
                                     </h1>
                                 </div>
                             </div>
                             <div class="my-2">
                                 <p class="phone">
                                     <span class="bi bi-telephone-forward-fill"></span>
-                                    <a href="tel:04952420000" class="text-black fw-bold fs-2">0495 2420000,</a>
-                                    <a href="tel:+917592997991" class="text-black fw-bold fs-2"> +75929 97991</a>
+                                    <a href="tel:04952420000" class="text-black fw-bold fs-2">0495 2420000</a>
+                                    {{-- <a href="tel:+917592997991" class="text-black fw-bold fs-2"> +75929 97991</a> --}}
                                 </p>
                             </div>
                         </div>
+
                         <div class="col-lg-4">
-                            <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
-                                <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
-                                <div class="ms-4">
-                                    <h1 class="fw-bold text-light fs-5">Health Plans We Accept</h1>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20book%20appointments&amp;lang=en"
+                                target="_blank" class="w-100">
+                                <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
+                                    <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
+                                    <div class="ms-4">
+                                        <h1 class="fw-bold text-light fs-5">Book Appointments</h1>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
-                                <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
-                                <div class="ms-4">
-                                    <h1 class="fw-bold text-light fs-5">Book Appointment</h1>
+                            </a>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20book%20appointments&amp;lang=en"
+                                target="_blank" class="w-100">
+                                <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
+                                    <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
+                                    <div class="ms-4">
+                                        <h1 class="fw-bold text-light fs-5">Home Care Services</h1>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
-                                <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
-                                <div class="ms-4">
-                                    <h1 class="fw-bold text-light fs-5">Lab Results</h1>
+                            </a>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20book%20appointments&amp;lang=en"
+                                target="_blank" class="w-100">
+                                <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
+                                    <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
+                                    <div class="ms-4">
+                                        <h1 class="fw-bold text-light fs-5">Health checkup packages</h1>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
-                                <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
-                                <div class="ms-4">
-                                    <h1 class="fw-bold text-light fs-5">Latest News & Events</h1>
+                            </a>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20book%20appointments&amp;lang=en"
+                                target="_blank" class="w-100">
+                                <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
+                                    <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
+                                    <div class="ms-4">
+                                        <h1 class="fw-bold text-light fs-5">Antinatal Packages</h1>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -172,7 +186,7 @@
                                                 </div>
                                                 <div class="col-10">
                                                     <h6 class="fw-bold mb-0">{{ $testimonial->name }}</h6>
-                                                     <small class="text-muted">{{ $testimonial->designation }}</small>
+                                                    <small class="text-muted">{{ $testimonial->designation }}</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -199,7 +213,7 @@
         <div class="my-2">
             <div class="col-lg-12">
                 <div class="container my-5">
-                    <h2 class="text-center mb-4">Meet Our Doctors</h2>
+                    <h2 class="text-center mb-4">Meet Our Specialists</h2>
 
                     <div class="swiper mySwiperDoctors">
                         <div class="swiper-wrapper  pb-5">
@@ -213,7 +227,7 @@
                                         <h6 class="fw-bold mb-1">{{ $doctor->name }}</h6>
                                         <small class="text-muted d-block mb-1">{{ $doctor->designation }}</small>
                                         <div class="col-lg-12 text-center">
-                                            <a href="{{ route('doctor.single',$doctor->slug) }}"
+                                            <a href="{{ route('doctor.single', $doctor->slug) }}"
                                                 class="text-light btn-sm btn btn-theme2 w-25 text-center">Book</a>
                                         </div>
                                     </div>
@@ -342,7 +356,7 @@
                                 <div class="d-flex flex-column align-items-start">
                                     <h1 class="text-black fw-bold fs-1">Book An Appointment</h1>
                                     <a href="tel:04952420000" class="text-black fw-bold fs-2">0495 2420000,</a>
-                                    <a href="tel:+917592997991" class="text-black fw-bold fs-2"> +75929 97991</a>
+                                    {{-- <a href="tel:+917592997991" class="text-black fw-bold fs-2"> +75929 97991</a> --}}
                                 </div>
 
                             </div>

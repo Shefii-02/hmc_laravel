@@ -203,16 +203,18 @@
         }
 
         /* Optional: glass blur overlay */
-        .bg-emergency::before {
+        /* .bg-emergency::before {
             content: "";
             position: absolute;
             inset: 0;
             background: rgb(60 139 112 / 7%);
             /* darken for contrast */
-            /* backdrop-filter: blur(6px); */
-            -webkit-backdrop-filter: blur(6px);
-            z-index: 1;
+        /* backdrop-filter: blur(6px); */
+        -webkit-backdrop-filter: blur(6px);
+        z-index: 1;
         }
+
+        */
 
         /* Make content above overlay */
         .bg-emergency>.container,
@@ -270,7 +272,9 @@
         }
 
         .bg-we-provided-points {
-            background: linear-gradient(135deg, #4bb9ea 20%, #8ec641 20%, #4bb9ea 28%, #8ec641 100%);
+            /* background: linear-gradient(135deg, #4bb9ea 20%, #8ec641 20%, #4bb9ea 28%, #8ec641 100%); */
+            background: linear-gradient(135deg, rgb(10 4 5 / 70%) 0%, rgb(22 21 66 / 70%) 48%, rgb(15 156 239 / 70%) 100%);
+            background-color: #26c9f1;
         }
 
         .bg-theme-gradient {
@@ -346,18 +350,19 @@
             <div class="top-outer clearfix">
                 <!-- Top Left -->
                 <ul class="top-left">
-                    <li><span class="icon flaticon-map"></span>Tirur Road,Kuttippuram,Malappuram</li>
-                    <li><a href="tel:+91987858752"><span class="icon flaticon-phone-receiver"></span>Phone:
+                    <li><span class="bi bi-geo-alt me-2"></span>Tirur Road,Kuttippuram,Malappuram</li>
+                    <li><a href="tel:+91987858752"><i class="bi bi-headset me-2"></i>Phone:
                             +917592997991</a></li>
-                    <li><a href="mailto:info@hmc.com"><span
-                                class="icon flaticon-letter"></span>hayathmedicare@gmail.com</a></li>
+                    <li><a href="mailto:info@hmc.com"><i class="bi bi-envelope-at me-2"></i>hayathmedicare@gmail.com</a>
+                    </li>
                     <li>
                         <div class="social-area">
-                            <a href="https://www.facebook.com/HMC.KUTTIPURAM/"><i class="lab la-facebook-f"></i></a>
-                            <a href="https://instagram.com/hayathmedicare?utm_medium=copy_link"><i
-                                    class="lab la-instagram"></i></a>
-                            <a href="https://youtube.com/channel/UCCtbo0c3_1oaUXIrvTEU3LQ"><i
-                                    class="lab la-youtube"></i></a>
+                            <a href="https://www.facebook.com/HMC.KUTTIPURAM/" title="Facebook">
+                                <i class="bi bi-facebook me-2"></i></a>
+                            <a href="https://instagram.com/hayathmedicare?utm_medium=copy_link" title="Instagram">
+                                <i class="bi bi-instagram me-2"></i></a>
+                            <a href="https://youtube.com/channel/UCCtbo0c3_1oaUXIrvTEU3LQ" title="Youtube"><i
+                                    class="bi bi-youtube"></i></a>
                             <!--<a href="#"><i class="lab la-linkedin"></i></a>-->
                         </div>
                     </li>
@@ -383,9 +388,11 @@
         <div class="container">
             <div class="xs-navbar clearfix  pr-5">
 
-                <div class="logo-outer pl-2">
-                    <div class="logo"><a href="/">
-                            <img src="{{ asset('assets/img/logo-white.png') }}" alt="t"></a></div>
+                <div class="logo-outer mt-2">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="{{ asset('assets/img/logo-white.png') }}" alt="t"></a>
+                    </div>
                 </div>
 
                 <nav class="elementskit-navbar">
@@ -422,17 +429,18 @@
 
                             <li class="elementskit-dropdown-has">
                                 <a href="about-us"
-                                    class="{{ request()->routeIs('our-doctors') || request()->routeIs('about-us') || request()->routeIs('contact-us') ? 'active' : '' }}">About
-                                    Us</a>
+                                    class="{{ request()->routeIs('our-doctors') || request()->routeIs('about-us') || request()->routeIs('galleries') ? 'active' : '' }}">About
+                                    Us <i class="bi bi-caret-down"></i></a>
                                 <ul class="elementskit-dropdown elementskit-submenu-panel">
                                     <li><a class="{{ request()->routeIs('about-us') ? 'active' : '' }}"
                                             href="/about-us">About Us</a></li>
                                     <li><a class="{{ request()->routeIs('our-doctors') ? 'active' : '' }}"
                                             href="/our-doctors">Our Doctors</a></li>
                                     <!--<li><a href="Careers">Careers</a></li>-->
-                                    <li><a class="{{ request()->routeIs('contact-us') ? 'active' : '' }}"
-                                            href="/contact-us">Contact Us</a></li>
-
+                                    {{-- <li><a class="{{ request()->routeIs('contact-us') ? 'active' : '' }}"
+                                            href="/contact-us">Contact Us</a></li> --}}
+                                    <li><a class="{{ request()->routeIs('galleries') ? 'active' : '' }}"
+                                            href="/galleries">Gallery</a></li>
                                 </ul>
                             </li>
                             <style>
@@ -471,10 +479,14 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a class="{{ request()->routeIs('galleries') || request()->routeIs('gallery') ? 'active' : '' }}"
-                                    href="{{ route('galleries') }}">Gallery</a></li>
+
                             <li><a class="{{ request()->routeIs('blog') || request()->routeIs('blog.show') ? 'active' : '' }}"
-                                    href="/blog">Blog</a></li>
+                                    href="/blog?tab=news-and-events">News and Events</a></li>
+                            <li><a class="{{ request()->routeIs('carrier') || request()->routeIs('carrier') ? 'active' : '' }}"
+                                    href="{{ route('carrier') }}">Carrier</a></li>
+                            <li><a class="{{ request()->routeIs('contact-us') || request()->routeIs('contact-us') ? 'active' : '' }}"
+                                    href="{{ route('contact-us') }}">Contact us</a></li>
+
 
                             <li class="d-block d-lg-none text-center">
                                 <a href="{{ route('arogyam-njagalilude', ['tab' => 'articles']) }}">
@@ -533,7 +545,9 @@
         transform-origin: bottom;
         right: -46px;
         padding: 3px 19px;
-        background: #8ec640;
+        /* background: #8ec640; */
+        background: linear-gradient(135deg, rgb(10 4 5 / 70%) 0%, rgb(22 21 66 / 70%) 48%, rgb(15 156 239 / 70%) 100%);
+        background-color: #26c9f1;
         border: none;
         border-radius: 5px 5px 0 0;
         font-weight: 600;
@@ -551,7 +565,9 @@
         transform-origin: bottom;
         right: -46px;
         padding: 3px 19px;
-        background: #8ec640;
+        /* background: #8ec640; */
+        background: linear-gradient(135deg, rgb(10 4 5 / 70%) 0%, rgb(22 21 66 / 70%) 48%, rgb(15 156 239 / 70%) 100%);
+        background-color: #26c9f1;
         border: none;
         border-radius: 5px 5px 0 0;
         font-weight: 600;
@@ -572,33 +588,63 @@
 
                     <div class="social-area text-center mb-3">
                         <img src="{{ asset('assets/img/logo-white.png') }}" alt="-logo"><br>
-                        <a href="https://www.facebook.com/HMC.KUTTIPURAM/"><i class="lab la-facebook-f"></i></a>
-                        <a href="https://instagram.com/hayathmedicare?utm_medium=copy_link"><i
-                                class="lab la-instagram"></i></a>
-                        <a href="https://youtube.com/channel/UCCtbo0c3_1oaUXIrvTEU3LQ"><i
-                                class="lab la-youtube"></i></a>
-                        <!--<a href="#"><i class="la la-linkedin"></i></a>-->
+                        <ul class="text-left ms-3">
+                            <li>
+                                <span class="text-white">
+                                    <span class="bi bi-geo-alt me-2"></span>Tirur Road, Kuttippuram
+                                    </span><br>
+                                <a class="text-white p-0 m-0" href="tel:+91987858752"><i class="bi bi-headset me-2"></i>Phone:
+                                    +917592997991</a><br>
+                                <a class="text-white p-0 m-0" href="mailto:info@hmc.com"><i
+                                        class="bi bi-envelope-at me-2"></i>hayathmedicare@gmail.com</a>
+                            </li>
+
+                        </ul>
                     </div>
 
                 </div>
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12">
-                    <h5 class="text-light mb-2">Departments</h5>
+                    <h5 class="text-light mb-2">OUR CENTER OF EXCELLENCE</h5>
                     <ul class='text-left services-links'>
                         <li>
-                            @foreach (getDepartments() as $dept)
-                                <a href="/department/{{ $dept->slug }}"><span>-</span> {{ $dept->name }}</a>
-                            @endforeach
+                            <a href="#"><span>-</span> DENTAL CARE</a>
                         </li>
+                        <li>
+                            <a href="#"><span>-</span> EYE CARE</a>
+                        </li>
+                        <li>
+                            <a href="#"><span>-</span> AESTHETIC CLINIC</a>
+                        </li>
+                        <li>
+                            <a href="#"><span>-</span> HOME CARE SERVICES</a>
+                        </li>
+
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-12 col-sm-12 col-12">
-                    <h5 class="text-light mb-2">Services</h5>
+                    <h5 class="text-light mb-4"></h5>
                     <ul class='text-left services-links'>
                         <li>
-                            @foreach (getServices() as $srv)
-                                <a href="/service/{{ $srv->slug }}"><span>-</span> {{ $srv->title }}</a>
-                            @endforeach
+                        <li>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20HEALTH%20CARD&amp;lang=en"
+                                target="_blank" class="w-100"><span>-</span> HEALTH CARD</a>
+                        </li>
+                        <li>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20STUDENTS%20HEALTH%20CARD&amp;lang=en"
+                                target="_blank" class="w-100"><span>-</span> STUDENTS HEALTH CARD</a>
+                        </li>
+                        <li>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20SEANIOR%20CARE&amp;lang=en"
+                                target="_blank" class="w-100"><span>-</span> SEANIOR CARE </a>
+                        </li>
+                        <li>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20PRIVILEGE%20CARD&amp;lang=en"
+                                target="_blank" class="w-100"><span>-</span> PRIVILEGE CARD</a>
+                        </li>
+                        <li>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20NRE%20CARD&amp;lang=en"
+                                target="_blank" class="w-100"><span>-</span> NRE CARD</a>
                         </li>
                     </ul>
                 </div>
@@ -606,14 +652,12 @@
                     <h5 class="text-light mb-2">Quick Links</h5>
                     <ul class='text-left services-links'>
                         <li>
-                            <a href="{{ route('about-us') }}"><span>-</span> About us</a>
-                            {{-- <a href="#"><span>-</span> Career</a> --}}
-                            <a href="{{ route('our-doctors') }}"><span>-</span> Doctors</a>
-                            <a href="{{ route('contact-us') }}"><span>-</span> Contact</a>
-                            <a href="{{ route('galleries') }}"><span>-</span> Gallery</a>
-                            <a href="{{ route('blog') }}"><span>-</span> News & Events</a>
-                            <a href="{{ route('book-now') }}"><span>-</span> Get a Appointment</a>
-                            <a href="{{ route('lab-result') }}"><span>-</span> Lab Result</a>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20HEALTH%20CARD&amp;lang=en"
+                                target="_blank" class="w-100"><span>-</span> HEALTH CARD</a>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20ANTINATAL%20PACKAGES&amp;lang=en"
+                                target="_blank" class="w-100"><span>-</span> ANTINATAL PACKAGES</a>
+                            <a href="https://api.whatsapp.com/send?phone=+917592997991&amp;text=Hai,%20I%20would%20like%20to%20know%20more%20about%20INTERNATIONAL%20PACKAGES&amp;lang=en"
+                                target="_blank" class="w-100"><span>-</span> INTERNATIONAL PACKAGES</a>
                         </li>
                     </ul>
 

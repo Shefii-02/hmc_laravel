@@ -416,12 +416,27 @@ hr {
 	color: #ffffff;
 }
 
+.page-breadcrumb{
+background: linear-gradient(rgb(75 185 233 / 89%), rgb(32 71 105));
+}
+.page-breadcrumb h1{
+    color: #FFFFFF;
+}
 .section-title h6 {
-	color: #37fc00;
+	/* color: #37fc00;
 	font-size: 20px;
     font-weight: 900;
 	text-transform: capitalize;
-	letter-spacing: 1px;
+	letter-spacing: 1px; */
+    background: linear-gradient(135deg, rgb(10 4 5 / 50%) 0%, rgb(22 21 66 / 70%) 28%, rgb(15 156 239 / 70%) 100%);
+    background-color: #26c9f1;
+    color: transparent;
+    display: inline-block;
+    background-clip: text;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 .section-title-process-area h6{
 	color: #37fc00;
