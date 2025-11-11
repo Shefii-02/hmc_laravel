@@ -39,7 +39,7 @@
                             <div class="section-title">
 
                                 <!--<h6>About Us</h6>-->
-                                <h2 class="text-uppercase font-monospace">We're the Top <b>Health care </b> in Situation</h2>
+                                <h1 class="text-uppercase text-dark font-monospace">We're the Top <b>Health care </b> in Situation</h1>
                             </div>
                             <p>&nbsp;&nbsp;HAYATH MEDICARE Hospital and Diagnostic Centre was established in the year 2020
                                 by HAYATH MEDICARE LLP near Tirur road in Kuttippuram. We have evolved as a centre of
@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="">
-                                <h1 class="title text-uppercase font-monospace">Our Departments</h1>
+                                <h1 class="title  text-uppercase font-monospace">Our Departments</h1>
                                 <p>
                                     Hayath Medicare Hospital is surely the best private hospital in Kerala with high-quality
                                     services and specialised in General Medicine,
