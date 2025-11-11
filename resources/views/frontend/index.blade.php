@@ -31,6 +31,7 @@
                                 <div class="player-icon">
                                     <div class="triangle"></div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
