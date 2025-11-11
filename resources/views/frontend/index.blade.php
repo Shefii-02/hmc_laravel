@@ -39,7 +39,7 @@
                             <div class="section-title">
 
                                 <!--<h6>About Us</h6>-->
-                                <h2>We're the Top <b>Health care </b> in Situation</h2>
+                                <h2 class="text-uppercase font-monospace">We're the Top <b>Health care </b> in Situation</h2>
                             </div>
                             <p>&nbsp;&nbsp;HAYATH MEDICARE Hospital and Diagnostic Centre was established in the year 2020
                                 by HAYATH MEDICARE LLP near Tirur road in Kuttippuram. We have evolved as a centre of
@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="">
-                                <h2 class="title">Our Departments</h2>
+                                <h1 class="title text-uppercase font-monospace">Our Departments</h1>
                                 <p>
                                     Hayath Medicare Hospital is surely the best private hospital in Kerala with high-quality
                                     services and specialised in General Medicine,
@@ -105,11 +105,11 @@
                                 <div class ="quote">
 
 
-                                    <h1 class="text-black fw-bold we-are-provide">WE CARE FOR YOU</h1>
+                                    <h1 class="text-black fw-bold we-are-provide text-uppercase font-monospace">WE CARE FOR YOU</h1>
                                     <h1 class="text-black">
                                         {{-- "Quality Health facility.", "Qualified Doctors.", "Patient Friendly" --}}
                                         <span class="txt-rotate" data-period="300"
-                                            data-rotate='[ "Emergency Trauma care 24*7" ]'></span>
+                                            data-rotate='[ "Emergency Trauma Care 24*7" ]'></span>
                                     </h1>
                                 </div>
                             </div>
@@ -146,7 +146,7 @@
                                 <div class="alert bg-we-provided-points mb-2 d-flex align-items-center" role="alert">
                                     <img src="https://malabarhospitals.com/css/images/departments/malabar2.png">
                                     <div class="ms-4">
-                                        <h1 class="fw-bold text-light fs-5">Health checkup packages</h1>
+                                        <h1 class="fw-bold text-light fs-5">Health Checkup Packages</h1>
                                     </div>
                                 </div>
                             </a>
@@ -168,7 +168,7 @@
         <div class="section-padding">
             <div class="col-lg-12">
                 <div class="container my-5">
-                    <h2 class="text-center mb-4">What Our Patients Say</h2>
+                    <h2 class="text-center mb-4 text-uppercase font-monospace">What Our Patients Say</h2>
 
                     <div class="swiper mySwiperTestimonial">
                         <div class="swiper-wrapper pb-5">
@@ -190,14 +190,9 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             @endforeach
-
-
-
                         </div>
 
                         <!-- Pagination & Navigation -->
@@ -213,7 +208,7 @@
         <div class="my-2">
             <div class="col-lg-12">
                 <div class="container my-5">
-                    <h2 class="text-center mb-4">Meet Our Specialists</h2>
+                    <h2 class="text-center mb-4 text-uppercase font-monospace">Meet Our Specialists</h2>
 
                     <div class="swiper mySwiperDoctors">
                         <div class="swiper-wrapper  pb-5">
@@ -252,7 +247,7 @@
 
                         <!-- Left Column -->
                         <div class="col-lg-3 mb-4 mb-lg-0">
-                            <h2 class="mb-3">Our Video Gallery</h2>
+                            <h2 class="mb-3 text-uppercase font-monospace">Our Video Gallery</h2>
                             <p class="text-muted">
                                 Explore our hospital’s facilities, patient stories, and health awareness videos through our
                                 YouTube collection.
@@ -298,7 +293,7 @@
 
                         <!-- Right Column (News & Events Slider) -->
                         <div class="col-lg-12">
-                            <h2 class="mb-3">News & Events</h2>
+                            <h2 class="mb-3 text-uppercase font-monospace">News & Events</h2>
                             <p class="text-muted">
                                 Stay updated with the latest hospital news, health awareness programs, medical camps, and
                                 events happening at our center.
@@ -354,7 +349,7 @@
                             <div class="phone d-flex gap-2 align-items-center">
                                 <span class="bi bi-telephone-forward-fill"></span>
                                 <div class="d-flex flex-column align-items-start">
-                                    <h1 class="text-black fw-bold fs-1">Book An Appointment</h1>
+                                    <h1 class="text-black fw-bold fs-1 text-uppercase font-monospace">Book An Appointment</h1>
                                     <a href="tel:04952420000" class="text-black fw-bold fs-2">0495 2420000,</a>
                                     {{-- <a href="tel:+917592997991" class="text-black fw-bold fs-2"> +75929 97991</a> --}}
                                 </div>
