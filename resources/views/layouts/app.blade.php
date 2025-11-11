@@ -590,9 +590,7 @@
                         <img src="{{ asset('assets/img/logo-black.png') }}" alt="-logo"><br>
                         <ul class="text-left ms-3">
                             <li>
-                                <span class="text-white">
-                                    <span class="bi bi-geo-alt me-2"></span>Tirur Road, Kuttippuram
-                                    </span><br>
+
                                 <a class="text-white p-0 m-0" href="tel:+91987858752"><i class="bi bi-headset me-2"></i>Phone:
                                     +917592997991</a><br>
                                 <a class="text-white p-0 m-0" href="mailto:info@hmc.com"><i
