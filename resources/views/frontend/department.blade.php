@@ -22,7 +22,7 @@
             <!-- Main Content -->
             <div class="col-lg-8">
                 <div class="single-service">
-                    <img src="{{ $department['image'] }}" alt="{{ $department['title'] }}" class="img-fluid mb-3">
+                    <img src="{{ $department['main_image_url'] }}" alt="{{ $department['title'] }}" class="img-fluid mb-3">
                     <h2>{{ $department['title'] }}</h2>
                     <p>{{ $department['description'] }}</p>
                     <hr>
