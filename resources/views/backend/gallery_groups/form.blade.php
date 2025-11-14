@@ -43,7 +43,7 @@
 
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Main Image</label>
+                                        <label class="form-label">Main Image <small>Size:304*306 px</small> </label>
                                         <input type="file" name="main_image" class="form-control" id="mainImage">
                                         @if (isset($galleryGroup))
                                             <img id="preview" src="{{ $galleryGroup->main_image_url }}" width="150"

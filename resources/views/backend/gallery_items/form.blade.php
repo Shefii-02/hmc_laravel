@@ -31,7 +31,7 @@
                             <!-- Upload Zone -->
                             <div id="drop-zone" class="border border-primary rounded p-5 text-center bg-light"
                                 style="cursor:pointer;">
-                                <p class="mb-2">Drag & Drop images here or click to select</p>
+                                <p class="mb-2">Drag & Drop images here or click to select <small>Size:304*306 px</small></p>
                                 <input type="file" id="images" name="images[]" multiple accept="image/*"
                                     class="d-none">
                             </div>

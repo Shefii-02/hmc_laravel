@@ -56,7 +56,7 @@
 
 
                                     <div class="mb-3">
-                                        <label class="form-label">Image</label>
+                                        <label class="form-label">Image<small>Size:1360*1020 px</small></label>
 
                                         <div class="mb-2">
                                             <img id="imgPreview" width="150"

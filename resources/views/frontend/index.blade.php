@@ -80,7 +80,7 @@
                                 <div class="swiper-wrapper  pb-5">
                                     @foreach ($departments ?? [] as $department)
                                         <div class="swiper-slide">
-                                            <a href="{{ route('department-single', $department->name) }}">
+                                            <a href="{{ route('department-single', $department->name) }}" class="bg-lightblue">
                                                 <img class="rounded" src="{{ $department->thumb_image_url }}">
                                             </a>
                                         </div>

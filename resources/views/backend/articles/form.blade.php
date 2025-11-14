@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Upload Image</label>
+                                <label class="form-label">Upload Image <small>Size:304*306 px</small> </label>
                                 <input type="file" name="image" id="imgSelect" class="form-control">
                                 @error('image')
                                     <div class="text-danger small">{{ $message }}</div>

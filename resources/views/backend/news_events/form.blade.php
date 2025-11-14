@@ -28,7 +28,7 @@
                                 @method('PUT')
                             @endif
                             <div class="col-sm-12 mb-3">
-                                <label class="form-label">Image</label>
+                                <label class="form-label">Image<small>Size:304*306 px</small></label>
                                 <div class="mb-2">
                                     <img id="imgPreview" width="150"
                                         src="{{ old('image_file', isset($newsEvent) ? $newsEvent->image_url : '') }}"

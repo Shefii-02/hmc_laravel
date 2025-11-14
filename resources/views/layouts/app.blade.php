@@ -577,6 +577,10 @@
         z-index: 9999;
         position: fixed;
     }
+
+    .bg-lightblue {
+        background-color: #add8e6;
+    }
 </style>
 <!-- Footer Area -->
 
@@ -591,7 +595,8 @@
                         <ul class="text-left ms-3">
                             <li>
 
-                                <a class="text-white p-0 m-0" href="tel:+91987858752"><i class="bi bi-headset me-2"></i>Phone:
+                                <a class="text-white p-0 m-0" href="tel:+91987858752"><i
+                                        class="bi bi-headset me-2"></i>Phone:
                                     +917592997991</a><br>
                                 <a class="text-white p-0 m-0" href="mailto:info@hmc.com"><i
                                         class="bi bi-envelope-at me-2"></i>hayathmedicare@gmail.com</a>

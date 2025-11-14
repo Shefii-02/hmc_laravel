@@ -30,7 +30,7 @@
 
                             <div class="row gx-4">
                                 <div class="col-sm-12 mb-3">
-                                    <label class="form-label">Photo</label>
+                                    <label class="form-label">Photo<small>Size:277*300 px</small></label>
                                     <div class="mb-2">
                                         <img id="imgPreview" width="150"
                                             src="{{ old('photo', isset($doctor) ? $doctor->photo_url : '') }}"

@@ -44,7 +44,7 @@
 
                             {{-- Thumbnail Image --}}
                             <div class="col-lg-6 col-sm-12 mb-3">
-                                <label class="form-label">Thumbnail Image (Icon)</label>
+                                <label class="form-label">Thumbnail Image (Icon) <small>Size:211*138 px</small> </label>
                                 <div class="mb-2">
                                     <img id="thumbPreview" width="150"
                                         src="{{ old('thumbnail_file', isset($service) && $service->thumbnail_url ? $service->thumbnail_url : asset('images/no-image.png')) }}"
@@ -57,7 +57,7 @@
                             </div>
                             {{-- Main Image --}}
                             <div class="col-lg-6 col-sm-12 mb-3">
-                                <label class="form-label">Main Image</label>
+                                <label class="form-label">Main Image <small>Size:361*510 px</small></label>
                                 <div class="mb-2">
                                     <img id="mainPreview" width="150"
                                         src="{{ old('main_image_file', isset($service) && $service->main_image_url ? $service->main_image_url : asset('images/no-image.png')) }}"

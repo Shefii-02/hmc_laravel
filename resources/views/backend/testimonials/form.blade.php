@@ -27,7 +27,7 @@
                                 @method('PUT')
                             @endif
                             <div class=" mb-3">
-                                <label class="form-label">Photo</label>
+                                <label class="form-label">Photo <small>Size:100*100 px</small></label>
                                 <div class="mb-2">
                                     <img id="imgPreview" width="150"
                                         src="{{ old('photo', isset($testimonial) ? $testimonial->image_url : '') }}"
