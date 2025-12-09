@@ -42,15 +42,8 @@
                                 <!--<h6>About Us</h6>-->
                                 <h1 class="text-uppercase text-dark font-monospace">We're the Top <b>Health care </b> in Situation</h1>
                             </div>
-                            <p>&nbsp;&nbsp;HAYATH MEDICARE Hospital and Diagnostic Centre was established in the year 2020
-                                by HAYATH MEDICARE LLP near Tirur road in Kuttippuram. We have evolved as a centre of
-                                excellence in medicine by delivering high-quality healthcare services at affordable cost to
-                                the poor in particular and the society at large.</p><br>
-                            <p>&nbsp;&nbsp;Today, we are a leading healthcare provider in Kuttippuram, equipped with quality
-                                facilities to deliver the best of services and thereby fulfilling its commitment to the
-                                society. This super speciality clinic, with the expertise of senior consultants, high
-                                quality nursing staff, up to date diagnostic facilities and a committed management has taken
-                                giant leaps in its growth to a multi-specialty centre of excellence. </p>
+                            <p>&nbsp;&nbsp;Hayath Medicare LLP, a proud member of the Hayath Medicare Group of Companies, was established in 2020 with a clear mission — to redefine healthcare delivery in rural Kerala and make advanced medical care accessible to every community. What began as a modest 2,000 sq. ft. super-specialty clinic in Kuttippuram, Malappuram, with just five departments and nine dedicated employees, has today transformed into one of the region’s most trusted healthcare institutions. Guided by the principles of compassion, commitment, and excellence, Hayath Medicare LLP has rapidly evolved into a 25,000 sq. ft., 50-bedded Super Specialty Hospital, symbolizing progress and dedication to community wellness.</p><br>
+                            <p>&nbsp;&nbsp;Over the past five years, the hospital has grown into a multi-disciplinary healthcare hub, now featuring 19 super-specialty departments and a team of over 100 skilled professionals, including 30+ experienced doctors. Our state-of-the-art medical infrastructure is designed to deliver comprehensive, affordable, and patient-centered healthcare, ensuring every individual receives the best possible care close to home. </p>
                             <a class='float-right' href="about-us">Read More..</a>
                             <hr>
                         </div>

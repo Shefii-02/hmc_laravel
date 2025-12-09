@@ -16,7 +16,7 @@ var options1 = {
   stroke: {
     width: 5,
   },
-  colors: ["#7367f0"],
+  colors: ["#07bcd4"],
   tooltip: {
     fixed: {
       enabled: false,
@@ -59,7 +59,7 @@ var options2 = {
   stroke: {
     width: 5,
   },
-  colors: ["#7367f0"],
+  colors: ["#07bcd4"],
   tooltip: {
     fixed: {
       enabled: false,
@@ -102,7 +102,7 @@ var options3 = {
   stroke: {
     width: 5,
   },
-  colors: ["#7367f0"],
+  colors: ["#07bcd4"],
   tooltip: {
     fixed: {
       enabled: false,

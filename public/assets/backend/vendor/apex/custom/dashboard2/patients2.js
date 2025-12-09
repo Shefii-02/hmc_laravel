@@ -71,7 +71,7 @@ var options = {
     },
   },
   labels: ['New: 600', 'Returning: 360'],
-  colors: ['#7367f0', '#d8e2eb'],
+  colors: ['#07bcd4', '#d8e2eb'],
   legend: {
     show: true,
     position: 'bottom',

@@ -423,7 +423,7 @@
 }
 
 .ql-editor .ql-bg-blue {
-  background-color: #7367f0;
+  background-color: #07bcd4;
 }
 
 .ql-editor .ql-bg-purple {
@@ -451,7 +451,7 @@
 }
 
 .ql-editor .ql-color-blue {
-  color: #7367f0;
+  color: #07bcd4;
 }
 
 .ql-editor .ql-color-purple {
@@ -554,7 +554,7 @@
 .ql-snow .ql-toolbar .ql-picker-item:hover,
 .ql-snow.ql-toolbar .ql-picker-item.ql-selected,
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
-  color: #7367f0;
+  color: #07bcd4;
 }
 
 .ql-snow.ql-toolbar button:hover .ql-fill,
@@ -585,7 +585,7 @@
 .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
 .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
-  fill: #7367f0;
+  fill: #07bcd4;
 }
 
 .ql-snow.ql-toolbar button:hover .ql-stroke,
@@ -616,7 +616,7 @@
 .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
 .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
 .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
-  stroke: #7367f0;
+  stroke: #07bcd4;
 }
 
 @media (pointer: coarse) {
@@ -1162,7 +1162,7 @@
 }
 
 .ql-snow a {
-  color: #7367f0;
+  color: #07bcd4;
 }
 
 .ql-container.ql-snow {

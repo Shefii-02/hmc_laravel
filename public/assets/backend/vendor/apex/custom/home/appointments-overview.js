@@ -65,11 +65,11 @@ var options = {
       show: false,
     },
   },
-  colors: ["#7367F0", "#ff3b41", "#24aa5c", "#ffb037", "#2b81df"],
+  colors: ["#07bcd4", "#ff3b41", "#24aa5c", "#ffb037", "#2b81df"],
   markers: {
     size: 0,
     opacity: 0.3,
-    colors: ["#7367F0", "#ff3b41", "#24aa5c", "#ffb037", "#2b81df"],
+    colors: ["#07bcd4", "#ff3b41", "#24aa5c", "#ffb037", "#2b81df"],
     strokeColor: "#ffffff",
     strokeWidth: 1,
     hover: {

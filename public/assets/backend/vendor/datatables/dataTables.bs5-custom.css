@@ -22,14 +22,14 @@ table.dataTable td.highlight {
 
 .page-link:hover {
   background-color: #ffffff;
-  color: #7367f0;
+  color: #07bcd4;
   border-color: #dee1e9;
 }
 
 .page-link.active,
 .active>.page-link {
-  background-color: #7367f0;
-  border: 1px solid #7367f0;
+  background-color: #07bcd4;
+  border: 1px solid #07bcd4;
   color: #ffffff;
 }
 
@@ -50,5 +50,5 @@ div.dataTables_wrapper div.dataTables_paginate {
 table.dataTable>thead .sorting,
 table.dataTable>thead .sorting_asc {
   color: #fff;
-  background: #7367f0;
+  background: #07bcd4;
 }

@@ -12,7 +12,7 @@ var options1 = {
       top: 7,
       left: 0,
       blur: 1,
-      color: '#7367f0',
+      color: '#07bcd4',
       opacity: 0.15
     }
   },
@@ -70,7 +70,7 @@ var options1 = {
       show: false
     },
   },
-  colors: ["#7367f0"],
+  colors: ["#07bcd4"],
   tooltip: {
     y: {
       formatter: function (val) {
@@ -97,7 +97,7 @@ var options2 = {
       top: 7,
       left: 0,
       blur: 1,
-      color: '#7367f0',
+      color: '#07bcd4',
       opacity: 0.15
     }
   },
@@ -155,7 +155,7 @@ var options2 = {
       show: false
     },
   },
-  colors: ["#7367f0"],
+  colors: ["#07bcd4"],
   tooltip: {
     y: {
       formatter: function (val) {
@@ -182,7 +182,7 @@ var options3 = {
       top: 7,
       left: 0,
       blur: 1,
-      color: '#7367f0',
+      color: '#07bcd4',
       opacity: 0.15
     }
   },
@@ -240,7 +240,7 @@ var options3 = {
       show: false
     },
   },
-  colors: ["#7367f0"],
+  colors: ["#07bcd4"],
   tooltip: {
     y: {
       formatter: function (val) {
@@ -267,7 +267,7 @@ var options4 = {
       top: 7,
       left: 0,
       blur: 1,
-      color: '#7367f0',
+      color: '#07bcd4',
       opacity: 0.15
     }
   },
@@ -325,7 +325,7 @@ var options4 = {
       show: false
     },
   },
-  colors: ["#7367f0"],
+  colors: ["#07bcd4"],
   tooltip: {
     y: {
       formatter: function (val) {

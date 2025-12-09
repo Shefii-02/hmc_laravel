@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CareerController;
+use App\Http\Controllers\Frontend\HomepageController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -20,8 +22,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
     })->name('contact-us');
 
     Route::post('/contact-us', 'HomepageController@submitContactForm')->name('submit.contact.form');
-
-
 
     Route::get('departments', 'HomepageController@departments')->name('departments');
     Route::get('department/{slug}', 'HomepageController@departmentSingle')->name('department-single');
@@ -53,6 +53,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function () {
 
     Route::get('carrier', 'HomepageController@carrier')->name('carrier');
 
+
+    Route::get('career/{career}/apply', [HomepageController::class, 'apply'])->name('career.apply');
+    Route::post('career/{career}/apply', [HomepageController::class, 'applyStore'])->name('career.apply.store');
 
 
     // Route::get('/department/{slug}', function ($slug) {
@@ -210,6 +213,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/home', 'DashboardController@index')->name('home');
 
     Route::resource('banners', BannerController::class);
+
+    Route::resource('career', CareerController::class);
+
 
     Route::get('/doctor/{doctor}/days', 'DoctorController@getAvailableDays')->name('doctor.days');
     Route::get('/doctor/{doctor}/day/{day}', 'DoctorController@getAvailableSlots')->name('doctor.slots');

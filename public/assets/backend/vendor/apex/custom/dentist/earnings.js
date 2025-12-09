@@ -27,7 +27,7 @@ var options1 = {
       },
     },
   },
-  colors: ["#7367f0", "#d5cdff"],
+  colors: ["#07bcd4", "#d5cdff"],
 };
 
 var chart1 = new ApexCharts(document.querySelector("#sparkline1"), options1);
@@ -115,7 +115,7 @@ var options3 = {
       show: false,
     },
   },
-  colors: ["#7367f0", "#68be21"],
+  colors: ["#07bcd4", "#68be21"],
 };
 
 var chart3 = new ApexCharts(document.querySelector("#sparkline3"), options3);

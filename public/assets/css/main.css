@@ -1,4 +1,59 @@
-body {}
+/* Regular */
+@font-face {
+  font-family: 'ElzaTrial';
+  src: url('/fonts/ElzaTrial-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Semibold */
+@font-face {
+  font-family: 'ElzaTrial';
+  src: url('/fonts/ElzaTrial-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'ElzaTrial';
+  src: url('/fonts/ElzaTrial-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Narrow Medium */
+@font-face {
+  font-family: 'ElzaTrial Narrow';
+  src: url('/fonts/ElzaTrial-NarrowMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Narrow Semibold */
+@font-face {
+  font-family: 'ElzaTrial Narrow';
+  src: url('/fonts/ElzaTrial-NarrowSemibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body {
+  font-family: 'ElzaTrial', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'ElzaTrial Narrow', sans-serif !important;
+  font-weight: 500;
+}
+
 
 ul {
     padding: 0;

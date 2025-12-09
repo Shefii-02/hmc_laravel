@@ -1,4 +1,80 @@
 @extends('layouts.app')
+@push('styles')
+<style>
+    /* Titles */
+.vmv-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+}
+
+.vmv-subtitle {
+    font-size: 16px;
+    color: #777;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Box Styling */
+.vmv-box {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 6px solid #0077b6;
+}
+
+/* Header Row */
+.vmv-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.vmv-icon-blue {
+    width: 38px;
+    margin-right: 10px;
+    filter: hue-rotate(180deg);
+}
+
+.vmv-icon-green {
+    width: 38px;
+    margin-right: 10px;
+}
+
+/* Headings */
+.vmv-heading-blue {
+    color: #0077b6;
+    font-weight: 700;
+}
+
+.vmv-heading-green {
+    color: #2d9c6a;
+    font-weight: 700;
+}
+
+/* Paragraph Text */
+.vmv-text {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.7;
+}
+
+/* Mission List */
+.vmv-list {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.vmv-list li {
+    margin-bottom: 10px;
+    font-size: 15.8px;
+    line-height: 1.7;
+    color: #444;
+}
+
+</style>
+@endpush
 @section('content')
     @php
         $breadcrumbs = [
@@ -21,17 +97,18 @@
                             <h2 class="text-black">We're take care of your <b>healthy health</b></h2>
                         </div>
                         <p>&nbsp;&nbsp;
-                            HAYATH MEDICARE Super Speciality Hospital and Diagnostic Centre was established in the year 2020
-                            by HAYATH MEDICARE LLP near Tirur road in Kuttippuram. We have evolved as a centre of excellence
-                            in medicine by delivering high-quality healthcare services at affordable cost to the poor in
-                            particular and the society at large.
+                            Established in 2025, Hayath Medicare Group of Companies stands as a trusted name in the
+                            healthcare industry, built on more than five years of excellence and experience in hospital and
+                            healthcare management. With our roots in Kuttippuram, Malappuram, we began with a single vision
+                            — to make quality healthcare accessible, affordable, and advanced for every community,
+                            especially in rural areas.
                         </p>
                         <p>&nbsp;&nbsp;
-                            Today, we are a leading healthcare provider in Kuttippuram, equipped with quality facilities to
-                            deliver the best of services and thereby fulfilling its commitment to the society. This super
-                            speciality clinic, with the expertise of senior consultants, high quality nursing staff, up to
-                            date diagnostic facilities and a committed management has taken giant leaps in its growth to a
-                            multi-specialty centre of excellence.
+                            Over the years, our group has expanded into multiple sectors within healthcare, evolving into a
+                            strong and diverse organization. Our journey began with Hayath Medicare LLP, which successfully
+                            operated as a full-fledged super specialty hospital. Building on this success, we have extended
+                            our reach to remote areas through Hayath Medicare Clinics LLP, a network of 10 clinics within a
+                            45 km radius of Kuttippuram, ensuring primary and specialty care for underserved populations.
                         </p>
                         <hr>
                     </div>
@@ -73,16 +150,29 @@
                             <h2 class="text-black"><b>Medicine made with care.</b></h2>
                         </div>
                         <div class="info-content-area">
-                            <p class="highlight">Currently we have an excellent crew consisting of 8 Doctors,</p>
+                            <p>
+                                As part of our mission to strengthen the healthcare ecosystem, we are also establishing
+                                Hayath Medicare Pharma Care LLP, focusing on pharmaceutical and surgical distribution and
+                                manufacturing. This initiative supports our clinical network and promotes local industry
+                                growth. In addition, Hayath Medicare Institute LLP is being developed to provide paramedical
+                                and non-paramedical education, nurturing the next generation of healthcare professionals and
+                                contributing to employment and skill development in Kerala.
+                            </p>
+                            <p>
+                                Our flagship company, Hayath Medicare Solutions Private Limited, serves as the central pillar of our operations. Headquartered in Kuttippuram, it is driven by a team of experienced board members, skilled executives, and visionary leadership. Together, we are committed to creating employment opportunities within our communities, supporting local economies, and fostering sustainable growth.
+                            </p>
+
+                            {{-- <p class="highlight">Currently we have an excellent crew consisting of 8 Doctors,</p>
                             <p class="highlight">12 Nursing and Paramedical staffs and other supportive staffs.</p>
                             <p class="highlight">In near future we are planning to start new departments including Eye care,
                                 Dental care, X-ray, Operation Theatre, Casualty, Trauma Care, Ambulance services and other
                                 clinical departments including Gastro enterology, Dermatology, Neurology, Nephrology,
-                                Urology, Psychiatry, Gynaecology and General Surgery.</p>
+                                Urology, Psychiatry, Gynaecology and General Surgery.</p> --}}
                             <p>&nbsp;&nbsp;
-                                We believe that each individual is special and deserves best care possible. We are able to
-                                successfully enrich the lives of our patients by providing high quality, yet affordable
-                                healthcare.
+                               Looking ahead, Hayath Medicare Group aims to emerge as one of the leading healthcare providers in the region — from Kuttippuram to Malappuram and beyond. We are also exploring opportunities in health tourism, leveraging Kerala’s reputation as a hub for medical and wellness care.
+                            </p>
+                            <p>&nbsp;&nbsp;
+                                At Hayath Medicare Group, we believe in building trust with our patients, clients, and investors — ensuring mutual growth, stability, and wellbeing. Our journey is not just about healthcare; it’s about shaping a healthier, stronger, and more prosperous future for everyone.
                             </p>
                         </div>
                     </div>
@@ -91,6 +181,62 @@
             </div>
         </div>
     </div>
+
+
+
+<section class="vmv-section py-5">
+    <div class="container">
+
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="vmv-title">Vision & Mission</h2>
+            <p class="vmv-subtitle">
+                Shaping a healthier, stronger, and more prosperous world through accessible and advanced healthcare.
+            </p>
+        </div>
+
+        <div class=" align-items-start">
+
+            <!-- Vision Block -->
+            <div class="col-md-12 mb-4">
+                <div class="vmv-box">
+                    <div class="vmv-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" class="vmv-icon-blue">
+                        <h3 class="vmv-heading-blue">Vision</h3>
+                    </div>
+
+                    <p class="vmv-text">
+                        To create a healthier, stronger, and more prosperous world by transforming healthcare
+                        accessibility, affordability, and quality — empowering every individual, from rural
+                        communities to global citizens, through innovative and sustainable healthcare solutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Mission Block -->
+            <div class="col-md-12">
+                <div class="vmv-box">
+                    <div class="vmv-header">
+                        <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" class="vmv-icon-green">
+                        <h3 class="vmv-heading-green">Mission</h3>
+                    </div>
+
+                    <ul class="vmv-list">
+                        <li>To deliver high-quality, affordable, and advanced healthcare through an integrated network of hospitals, clinics, and specialized centers.</li>
+                        <li>To expand healthcare access across rural and urban regions, ensuring no community is left behind.</li>
+                        <li>To strengthen the healthcare ecosystem through pharmaceutical manufacturing, surgical distribution, and educational initiatives.</li>
+                        <li>To nurture the next generation of healthcare professionals through training, skill development, and institutional excellence.</li>
+                        <li>To generate sustainable employment opportunities and contribute to the economic and social growth of our communities.</li>
+                        <li>To promote health tourism in Kerala by combining world-class medical expertise with compassionate care.</li>
+                        <li>To build trust and long-term relationships with patients, partners, and investors by upholding integrity, innovation, and excellence.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
     <section class="py-5 bg-light">
         <div class="container">

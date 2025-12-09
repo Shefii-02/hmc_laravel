@@ -59,10 +59,10 @@ var options = {
         },
         value: {
           show: true,
-          colors: '#7367F0',
+          colors: '#07bcd4',
           fontWeight: 600,
           fontSize: '20px',
-          color: '#7367F0',
+          color: '#07bcd4',
           offsetY: 6,
           formatter: function (val) {
             return val + '%';
@@ -72,7 +72,7 @@ var options = {
     },
   },
   labels: ['Male - 18', 'Female - 12'],
-  colors: ['#7367F0', '#d8e2eb'],
+  colors: ['#07bcd4', '#d8e2eb'],
   legend: {
     show: true,
     position: 'bottom',

@@ -265,7 +265,7 @@
                             </ul>
                         </li>
                         <li
-                            class="mb-5 treeview {{ request()->routeIs('admin.blogs.news-events.*') || request()->routeIs('admin.blogs.articles.*') || request()->routeIs('admin.blogs.vlogs.*') ? 'active current-page' : '' }}">
+                            class=" treeview {{ request()->routeIs('admin.blogs.news-events.*') || request()->routeIs('admin.blogs.articles.*') || request()->routeIs('admin.blogs.vlogs.*') ? 'active current-page' : '' }}">
                             <a href="#!">
                                 <i class="ri-nurse-line"></i>
                                 <span class="menu-text">Blogs</span>
@@ -287,6 +287,23 @@
                                 <li class="mb-5"></li>
                             </ul>
                         </li>
+                         <li class="mb-5 treeview {{ request()->routeIs('admin.career.*') ? 'active current-page' : '' }}">
+                            <a href="#!">
+                                <i class="ri-threads-fill"></i>
+                                <span class="menu-text">Career</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a class="{{ request()->routeIs('admin.career.index') ? 'active' : '' }}"
+                                        href="{{ route('admin.career.index') }}">Career List</a>
+                                </li>
+                                <li>
+                                    <a class="{{ request()->routeIs('admin.career.create') ? 'active' : '' }}"
+                                        href="{{ route('admin.career.create') }}">Add Career</a>
+                                </li>
+                            </ul>
+                        </li>
+   <li class="mb-5"></li>
                         <li class="mb-5"></li>
                         {{-- <li class="treeview">
                             <a href="#!">

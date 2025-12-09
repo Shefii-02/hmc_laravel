@@ -16,7 +16,7 @@ var options = {
   yaxis: {
     stepSize: 20
   },
-  colors: ["#7367F0", "#D3CFFB", "#DFDCFC"],
+  colors: ["#07bcd4", "#D3CFFB", "#DFDCFC"],
   xaxis: {
     categories: ['Walking', 'Sleeping', 'Yoga', 'Gym', 'Playing', 'swimming']
   }

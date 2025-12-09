@@ -25,9 +25,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use App\Mail\ContactFormSubmitted;
+use App\Models\Career;
 use App\Models\LabResult;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
+
+use App\Models\CareerApplication;
+
 
 class HomepageController extends Controller
 {
@@ -149,8 +153,54 @@ class HomepageController extends Controller
 
     public function  carrier()
     {
-        return view('frontend.carrier');
+        $carriers = Career::get();
+        return view('frontend.carrier', compact('carriers'));
     }
+
+
+    public function apply(Career $career)
+    {
+        return view('frontend.apply', compact('career'));
+    }
+
+    public function applyStore(Request $request, Career $career)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'cv' => 'required|mimes:pdf,doc,docx|max:2048',
+        ]);
+
+        // Upload CV
+        if ($request->hasFile('cv')) {
+            $cvPath = $request->file('cv')->store('cvs', 'public');
+        }
+
+        // Store in DB
+        $application = CareerApplication::create([
+            'career_id' => $career->id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'cv' => $cvPath,
+            'message' => $request->message,
+        ]);
+
+        // Send Email
+        // Mail::send('emails.new_career_application', [
+        //     'career' => $career,
+        //     'application' => $application,
+        // ], function ($mail) use ($application) {
+
+        //     $mail->to('hr@yourcompany.com')
+        //         ->subject('New Job Application - ' . $application->career->title)
+        //         ->attach(storage_path('app/public/' . $application->cv));
+        // });
+
+        return true;
+    }
+
 
 
     public function blogShow($slug)

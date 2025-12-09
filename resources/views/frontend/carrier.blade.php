@@ -4,7 +4,7 @@
         $breadcrumbs = [
             ['title' => 'Home', 'url' => '/'],
             // ['title' => 'Services', 'url' => '/services'], // optional
-            ['title' => 'About Us', 'url' => null], // current page
+            ['title' => 'Career', 'url' => null], // current page
         ];
     @endphp
 
@@ -195,107 +195,41 @@
                     <div class="career-search mb-60">
 
                         <div class="filter-result">
-                            <p class="mb-30 ff-montserrat">Total Job Openings : 89</p>
+                            <p class="mb-30 ff-montserrat">Total Job Openings : {{ $carriers->count() }}</p>
+                            @forelse($carriers ?? [] as $career)
+                                <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                                    <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                                        <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">
+                                            {{ Str::limit($career->title, 1, '') }}
+                                        </div>
+                                        <div class="job-content ms-2">
+                                            <h5 class="text-left">{{ $career->title }}</h5>
+                                            <ul class="d-md-flex flex-column flex-wrap text-capitalize ff-open-sans">
+                                                <li class="mr-md-4">
+                                                    <i class="bi bi-note mr-2"></i> {{ $career->description }}
+                                                </li>
+                                                <li class="mr-md-4 mt-2">
+                                                    <i class="bi bi-pin-map mr-2 fs-6"></i> {{ $career->location }}
+                                                </li>
+                                                <li class="mr-md-4">
+                                                    <i class="bi bi-clock mr-2 fs-6"></i> {{ $career->type }}
+                                                </li>
 
-                            <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
-                                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
-                                    <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">
-                                        FD
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="job-content ms-2">
-                                        <h5 class="text-left">Front End Developer</h5>
-                                        <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-pin mr-2"></i> Los Angeles
-                                            </li>
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-money mr-2"></i> 2500-3500/pm
-                                            </li>
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-time mr-2"></i> Full Time
-                                            </li>
-                                        </ul>
+                                    <div class="job-right my-4 flex-shrink-0">
+                                        <a data-url="{{ route('career.apply', $career->id) }}"
+                                            class="btn d-block w-100 d-sm-inline-block btn-light apply-now">
+                                            Apply now
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="job-right my-4 flex-shrink-0">
-                                    <a href="#" class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>
+                            @empty
+                                <div class="my-5 text-center">
+                                    <h5>No data found..</h5>
                                 </div>
-                            </div>
-
-                            <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
-                                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
-                                    <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">
-                                        UX
-                                    </div>
-                                    <div class="job-content ms-2">
-                                        <h5 class="text-left">Ui/Ux Developer</h5>
-                                        <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-pin mr-2"></i> Los Angeles
-                                            </li>
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-money mr-2"></i> 2500-3500/pm
-                                            </li>
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-time mr-2"></i> Full Time
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="job-right my-4 flex-shrink-0">
-                                    <a href="#" class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>
-                                </div>
-                            </div>
-
-                            <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
-                                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
-                                    <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">
-                                        GD
-                                    </div>
-                                    <div class="job-content ms-2">
-                                        <h5 class="text-left">Graphic Designer</h5>
-                                        <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-pin mr-2"></i> Los Angeles
-                                            </li>
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-money mr-2"></i> 2500-3500/pm
-                                            </li>
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-time mr-2"></i> Full Time
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="job-right my-4 flex-shrink-0">
-                                    <a href="#" class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>
-                                </div>
-                            </div>
-
-                            <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
-                                <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
-                                    <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">
-                                        JS
-                                    </div>
-                                    <div class="job-content ms-2">
-                                        <h5 class="text-left">Javascript Developer</h5>
-                                        <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-pin mr-2"></i> Los Angeles
-                                            </li>
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-money mr-2"></i> 2500-3500/pm
-                                            </li>
-                                            <li class="mr-md-4">
-                                                <i class="zmdi zmdi-time mr-2"></i> Full Time
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="job-right my-4 flex-shrink-0">
-                                    <a href="#" class="btn d-block w-100 d-sm-inline-block btn-light">Apply now</a>
-                                </div>
-                            </div>
+                            @endforelse
 
                         </div>
                     </div>
@@ -305,4 +239,95 @@
 
         </div>
     </section>
+
+    <!-- Modal container -->
+    <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- Content will be loaded here via AJAX -->
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+
+            // 1. When “Apply now” clicked — load form via AJAX
+            $(document).on('click', '.apply-now', function(e) {
+                e.preventDefault();
+                const url = $(this).data('url');
+
+                // open modal
+                $('#applyModal').modal('show');
+
+                // optionally: show loading indicator
+                $('#applyModal .modal-body').html('<p>Loading...</p>');
+
+                // fetch form html
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function(html) {
+                        $('#applyModal .modal-body').html(html);
+                    },
+                    error: function(xhr) {
+                        $('#applyModal .modal-body').html(
+                            '<p class="text-danger">Failed to load form. Please try again.</p>'
+                            );
+                    }
+                });
+            });
+
+            // 2. Handle form submission via AJAX
+            $(document).on('submit', '#applyForm', function(e) {
+                e.preventDefault();
+
+                const form = $(this);
+                const action = form.attr('action');
+                const formData = new FormData(this);
+
+                // disable submit button to prevent double submits
+                form.find('button[type="submit"]').prop('disabled', true);
+
+                $.ajax({
+                    url: action,
+                    method: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // optionally: close modal + show success message
+                        $('#applyModal').modal('hide');
+                        alert('Application submitted successfully!');
+                        // or show a nicer alert / toast
+                    },
+                    error: function(xhr) {
+                        // show validation errors or generic error
+                        const errors = xhr.responseJSON?.errors;
+                        if (errors) {
+                            // e.g. iterate and display under fields
+                            let errHtml = '<div class="alert alert-danger"><ul>';
+                            $.each(errors, function(key, msgs) {
+                                msgs.forEach(msg => {
+                                    errHtml += '<li>' + msg + '</li>';
+                                });
+                            });
+                            errHtml += '</ul></div>';
+                            form.prepend(errHtml);
+                        } else {
+                            alert('Something went wrong. Please try again.');
+                        }
+                        form.find('button[type="submit"]').prop('disabled', false);
+                    }
+                });
+            });
+
+        });
+    </script>
+@endpush

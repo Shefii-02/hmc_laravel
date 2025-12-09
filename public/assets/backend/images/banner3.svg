@@ -9,7 +9,7 @@
     <g id="_5514326" data-name="5514326" transform="translate(1068.164 362)">
       <g id="OBJECTS">
         <g id="Group_12" data-name="Group 12" clip-path="url(#clip-path)">
-          <path id="Path_1" data-name="Path 1" d="M148.58,636.143s1.614-96.769,122.78-110.049,14.387-67.356,41.611-135.71c23-57.756,81.358-46.159,140.377-115.712,71.626-84.4,233.416-210.255,477.677,43.35s-9.615,481.291-9.615,481.291" transform="translate(-148.58 -221.819)" fill="#7367f0"/>
+          <path id="Path_1" data-name="Path 1" d="M148.58,636.143s1.614-96.769,122.78-110.049,14.387-67.356,41.611-135.71c23-57.756,81.358-46.159,140.377-115.712,71.626-84.4,233.416-210.255,477.677,43.35s-9.615,481.291-9.615,481.291" transform="translate(-148.58 -221.819)" fill="#07bcd4"/>
           <g id="Group_11" data-name="Group 11" transform="translate(91.755 38.222)">
             <g id="Group_8" data-name="Group 8" transform="translate(103.62 11.623)">
               <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="215.709" cy="5.227" rx="215.709" ry="5.227" transform="translate(0 311.609)" fill="#3a2b63" opacity="0.4"/>
@@ -112,7 +112,7 @@
               <path id="Path_56" data-name="Path 56" d="M283.134,321.447a2.327,2.327,0,1,0-2.327,2.327,2.327,2.327,0,0,0,2.327-2.327Z" transform="translate(-205.038 -234.742)" fill="#fff"/>
               <circle id="Ellipse_10" data-name="Ellipse 10" cx="2.327" cy="2.327" r="2.327" transform="translate(73.442 96.562)" fill="#fff"/>
               <rect id="Rectangle_20" data-name="Rectangle 20" width="110.55" height="76.214" rx="6.93" transform="translate(20.5)" fill="#9eda8d"/>
-              <rect id="Rectangle_21" data-name="Rectangle 21" width="97.058" height="63.866" rx="3.63" transform="translate(27.24 6.181)" fill="#7367f0"/>
+              <rect id="Rectangle_21" data-name="Rectangle 21" width="97.058" height="63.866" rx="3.63" transform="translate(27.24 6.181)" fill="#07bcd4"/>
               <rect id="Rectangle_22" data-name="Rectangle 22" width="30.661" height="3.713" rx="1.3" transform="translate(33.332 12.654)" fill="#fff"/>
               <rect id="Rectangle_23" data-name="Rectangle 23" width="30.661" height="3.713" rx="1.3" transform="translate(33.332 20.386)" fill="#fff"/>
               <rect id="Rectangle_24" data-name="Rectangle 24" width="30.661" height="3.713" rx="1.3" transform="translate(33.332 28.105)" fill="#fff"/>
