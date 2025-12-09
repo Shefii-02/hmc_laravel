@@ -71,6 +71,7 @@
     font-size: 15.8px;
     line-height: 1.7;
     color: #444;
+        list-style-type: inherit;
 }
 
 </style>
