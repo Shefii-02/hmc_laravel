@@ -209,9 +209,9 @@
             background: rgb(60 139 112 / 7%);
             /* darken for contrast */
         /* backdrop-filter: blur(6px); */
-        /* -webkit-backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
         z-index: 1;
-        } */
+        }
 
         */
 
@@ -236,7 +236,6 @@
             border-radius: 50% 50% 0 0;
             z-index: 2;
         }
-
 
 
         .emergency-section .phone,
@@ -337,6 +336,7 @@
         gtag('config', 'G-136HE3VF4V');
     </script>
     @stack('styles')
+
 </head>
 <header class="elementskit-header main-header  sticky-top">
 
@@ -400,12 +400,13 @@
                         // god menu markup start
                         ---------------------------------------- -->
 
-                    {{-- <div class="xs-mobile-search">
-                        <a ><i class="icon icon-search"></i></a>
-                    </div> --}}
+                    <div class="xs-mobile-search">
+                        <a href="#modal-popup-2"><i class="icon icon-search"></i></a>
+                    </div>
 
                     <!-- start humberger (for offcanvas toggler) -->
-                    <button class="elementskit-menu-toggler xs-bold-menu" href="#modal-popup-2" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <button class=" elementskit-menu-toggler xs-bold-menu">
+
                         <div class="xs-gradient-group">
                             <span></span>
                             <span></span>
@@ -418,7 +419,7 @@
                     <!-- end humberger -->
 
                     <!-- start menu container -->
-                    <div class="elementskit-menu-container offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                    <div class="elementskit-menu-container elementskit-menu-offcanvas-elements">
 
                         <!-- start menu item list -->
                         <ul class="elementskit-navbar-nav nav-alignment-dynamic">
