@@ -62,7 +62,7 @@ class GalleryGroupController extends Controller
         return view('backend.gallery_groups.form', compact('galleryGroup'));
     }
 
-    public function update(Request $request, GalleryGroup $galleryGroup)
+    public function update(Request $request, GalleryGroup $gallery)
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -72,18 +72,18 @@ class GalleryGroupController extends Controller
         ]);
 
         if ($request->hasFile('main_image')) {
-            if ($galleryGroup->main_image) {
-                MediaHelper::removeCompanyFile($galleryGroup->main_image);
+            if ($gallery->main_image) {
+                MediaHelper::removeCompanyFile($gallery->main_image);
             }
 
-            $galleryGroup->main_image = MediaHelper::uploadCompanyFile(
-                $galleryGroup->company_id,
+            $gallery->main_image = MediaHelper::uploadCompanyFile(
+                $gallery->company_id,
                 'gallery_groups',
                 $request->file('main_image')
             );
         }
 
-        $galleryGroup->update($validated);
+        $gallery->update($validated);
 
         return redirect()->route('admin.gallery_groups.index')->with('success', 'Gallery group updated successfully.');
     }

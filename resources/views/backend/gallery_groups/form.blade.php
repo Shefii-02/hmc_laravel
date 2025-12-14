@@ -25,8 +25,11 @@
                 <div class="card">
                     <div class="card-body">
                         <form
-                            action="{{ isset($galleryGroup) ? route('admin.gallery_groups.update', ["gallery" => $galleryGroup->id]) : route('admin.gallery_groups.store') }}"
+                            action="{{ isset($galleryGroup)
+                                ? route('admin.gallery_groups.update', $galleryGroup)
+                                : route('admin.gallery_groups.store') }}"
                             method="POST" enctype="multipart/form-data">
+
                             @csrf
                             @if (isset($galleryGroup))
                                 @method('PUT')
