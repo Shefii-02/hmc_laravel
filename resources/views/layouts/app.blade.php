@@ -336,7 +336,6 @@
         gtag('config', 'G-136HE3VF4V');
     </script>
     @stack('styles')
-
 </head>
 <header class="elementskit-header main-header  sticky-top">
 
@@ -789,6 +788,61 @@
     })();
 </script> --}}
 <!--End of Tawk.to Script-->
+
+<script>
+    jQuery(function ($) {
+    "use strict";
+
+    const MOBILE_WIDTH = 991;
+
+    /* ===========================
+       MOBILE DROPDOWN TOGGLE
+    ============================ */
+    $(document).on('click', '.elementskit-dropdown-has > a', function (e) {
+
+        if ($(window).width() > MOBILE_WIDTH) return;
+
+        e.preventDefault();
+
+        const $li = $(this).parent();
+        const $dropdown = $li.children('.elementskit-dropdown');
+
+        // Close other open dropdowns
+        $('.elementskit-dropdown').not($dropdown).removeClass('elementskit-dropdown-open');
+
+        // Toggle current
+        $dropdown.toggleClass('elementskit-dropdown-open');
+    });
+
+
+    /* ===========================
+       OFFCANVAS MENU TOGGLE
+    ============================ */
+    $(document).on('click', '.elementskit-menu-toggler', function (e) {
+        e.preventDefault();
+
+        const $container = $(this)
+            .closest('.elementskit-navbar, .header-upper, .main-header');
+
+        const $offcanvas = $container.find('.elementskit-menu-offcanvas-elements');
+
+        $offcanvas.toggleClass('active');
+    });
+
+
+    /* ===========================
+       RESET ON DESKTOP
+    ============================ */
+    $(window).on('resize', function () {
+        if ($(window).width() > MOBILE_WIDTH) {
+            $('.elementskit-menu-offcanvas-elements').removeClass('active');
+            $('.elementskit-dropdown').removeClass('elementskit-dropdown-open');
+        }
+    });
+
+});
+
+</script>
 </body>
 
 </html>

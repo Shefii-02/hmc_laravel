@@ -188,6 +188,7 @@
 jQuery(document).ready(function ($) {
     "use strict";
 
+
     function elementskit_event_manager(_event, _selector, _fn){
         $(document).on(_event, _selector, _fn);
     }
@@ -215,6 +216,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	elementskit_event_manager('click', '.elementskit-menu-toggler', function (e) {
+        alert(1)
 		e.preventDefault();
 		var parent_conatiner = $(this).parents('.elementskit-menu-container').parent();
 		if(parent_conatiner.length < 1){
