@@ -25,10 +25,6 @@
                 <div class="card">
                     <div class="card-body">
 
-                        @php
-                            dd($galleryGroup->id);
-                        @endphp
-
                         <form
                             action="{{ isset($galleryGroup)
                                 ? route('admin.gallery_groups.update', $galleryGroup)
