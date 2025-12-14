@@ -59,7 +59,8 @@ class GalleryGroupController extends Controller
 
     public function edit($galleryGroup)
     {
-        $GalleryGroup = GalleryGroup::find($galleryGroup);
+        $galleryGroup = GalleryGroup::find($galleryGroup);
+
         return view('backend.gallery_groups.form', compact('galleryGroup'));
     }
 
