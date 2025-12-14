@@ -1033,6 +1033,10 @@
                 el: '.swiper-pagination',
                 clickable: 'true',
             },
+             autoplay: {
+                delay: 1000,
+                disableOnInteraction: true,
+            },
         });
 
         var mySwiperDepartment = new Swiper(".mySwiperDepartment", {
