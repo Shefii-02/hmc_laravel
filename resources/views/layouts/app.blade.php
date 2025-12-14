@@ -14,7 +14,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style-2.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
@@ -210,9 +209,9 @@
             background: rgb(60 139 112 / 7%);
             /* darken for contrast */
         /* backdrop-filter: blur(6px); */
-        -webkit-backdrop-filter: blur(6px);
+        /* -webkit-backdrop-filter: blur(6px);
         z-index: 1;
-        }
+        } */
 
         */
 
@@ -233,7 +232,7 @@
             width: 100%;
             height: 70px;
             /* adjust the curve height */
-            background: white;
+            background: #1c2a41;
             border-radius: 50% 50% 0 0;
             z-index: 2;
         }
@@ -401,13 +400,12 @@
                         // god menu markup start
                         ---------------------------------------- -->
 
-                    <div class="xs-mobile-search">
-                        <a href="#modal-popup-2"><i class="icon icon-search"></i></a>
-                    </div>
+                    {{-- <div class="xs-mobile-search">
+                        <a ><i class="icon icon-search"></i></a>
+                    </div> --}}
 
                     <!-- start humberger (for offcanvas toggler) -->
-                    <button class=" elementskit-menu-toggler xs-bold-menu">
-
+                    <button class="elementskit-menu-toggler xs-bold-menu" href="#modal-popup-2" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <div class="xs-gradient-group">
                             <span></span>
                             <span></span>
@@ -420,7 +418,7 @@
                     <!-- end humberger -->
 
                     <!-- start menu container -->
-                    <div class="elementskit-menu-container elementskit-menu-offcanvas-elements">
+                    <div class="elementskit-menu-container offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
 
                         <!-- start menu item list -->
                         <ul class="elementskit-navbar-nav nav-alignment-dynamic">
