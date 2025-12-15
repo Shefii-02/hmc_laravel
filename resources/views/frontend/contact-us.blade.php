@@ -46,7 +46,7 @@
                         <div class="contact-us-inner">
                             <div class="info-i"><span><i class="bi bi-mobile"></i></span></div>
                             <h5>Phone Number</h5>
-                            <p>+91 22 22 22 22 22<br> +91 33 33 33 33 33</p>
+                            <p><a href="tel:04952420000">0495 2420000</a><br> <a href="917592997991">+91 759 299 7991</a></p>
                             <!-- <a href="#">Call Now</a> -->
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         <div class="contact-us-inner">
                             <div class="info-i"><span><i class="bi bi-envelope"></i></span></div>
                             <h5>E-mail Address</h5>
-                            <p>info@hmc.com<br>hayath-medicare@gmail.com</p>
+                            <a href="mailto:hayathmedicare@gmail.com">hayathmedicare@gmail.com</a>
                             <!-- <a href="#">Mail Us</a> -->
                         </div>
                     </div>
