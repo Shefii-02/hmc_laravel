@@ -131,14 +131,14 @@ class HomepageController extends Controller
 
         switch ($tab) {
             case 'articles':
-                $items = Article::latest()->paginate(6);
+                $items = Article::latest()->paginate(20);
                 break;
             case 'news-and-events':
-                $items = NewsEvent::latest()->paginate(6);
+                $items = NewsEvent::latest()->paginate(20);
                 break;
             case 'vlogs':
             default:
-                $items = Vlog::latest()->paginate(6);
+                $items = Vlog::latest()->paginate(20);
                 break;
         }
 
