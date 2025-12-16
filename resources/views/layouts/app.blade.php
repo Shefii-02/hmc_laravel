@@ -30,7 +30,7 @@
     <!-- Owl Carousel CSS -->
     {{-- <link href="{{ asset('assets/css/owl.carousel.css') }}" rel="stylesheet"> --}}
     <!-- Style CSS -->
-    <link href="{{ asset('assets/css/style.css?v=1.2') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css?v=1.3') }}" rel="stylesheet">
     <!-- Responsive CSS -->
     {{-- <link href="{{ asset('assets/css/responsive.css?v=1.3') }}" rel="stylesheet"> --}}
     <!-- Font Awesome CSS-->

@@ -153,10 +153,10 @@
 
         /* --- Custom Graphic/Line Placeholder (Simplified) --- */
         /* Note: Replicating the exact curve is complex and often requires an SVG or a complex CSS pseudo-element setup.
-                                                                       This solution focuses on the content placement and basic vertical layout. */
+                                                                                               This solution focuses on the content placement and basic vertical layout. */
 
         /* The overall width of the column is split between the text and a visual divider.
-                                                                       Using a column split like col-lg-5 and col-lg-7 helps keep text readable. */
+                                                                                               Using a column split like col-lg-5 and col-lg-7 helps keep text readable. */
 
         /* Special styling for left-aligned items (2019, 2021, 2025-2030) */
         .timeline-left {
@@ -482,6 +482,43 @@
                 </div>
             </div>
 
+        </div>
+        <div class="row g-3 mt-3">
+            <div class="col-md-3">
+                <div class="card p-3 border-0 shadow-lg rounded-3">
+                    <h6 class="text-bold mb-2">High Quality Treatment.</h6>
+                    <p>
+                        Affordable, quality healthcare for all,
+                        focusing on underserved communities.
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 border-0 shadow-lg rounded-3">
+                    <h6 class="text-bold mb-2">Highest Quality Clinical Care.</h6>
+                    <p>
+                        To provide the highest quality
+                        clinical care at nominal cost
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 border-0 shadow-lg rounded-3">
+                    <h6 class="text-bold mb-2"> Invest in Professional Growth.</h6>
+                    <p>To provide the highest quality
+                        clinical care at nominal cost
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 border-0 shadow-lg rounded-3">
+                    <h6 class="text-bold mb-2"> Patient Satisfaction.</h6>
+                    <p>To achieve the highest level of
+                        patient satisfaction.</p>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -1033,7 +1070,7 @@
                 el: '.swiper-pagination',
                 clickable: 'true',
             },
-             autoplay: {
+            autoplay: {
                 delay: 1000,
                 disableOnInteraction: true,
             },

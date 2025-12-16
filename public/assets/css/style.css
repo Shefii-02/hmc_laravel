@@ -413,7 +413,7 @@ hr {
 	font-weight: 800;
 	line-height: 55px;
 	margin: 20px 0;
-	color: #ffffff;
+	color: #000000;
 }
 
 .page-breadcrumb{
@@ -3952,7 +3952,7 @@ a.reply-btn {
 ============== */
 
 .contact-us-area {
-	background-image: url('/assets/images/hayath-emergency.webp');
+	/* background-image: url('/assets/images/hayath-emergency.webp'); */
 	background-size: cover;
 	height: 500px;
 	position: relative;

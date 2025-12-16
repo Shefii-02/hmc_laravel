@@ -273,9 +273,9 @@
                 <!-- Team Member 1 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm text-center p-3 h-100 rounded-bottom-5">
-                        <img src="/assets/img/team/team_22_01_13_03_23_11.jpeg" class="rounded mx-auto mb-3"
+                        <img src="/assets/img/team/nasif.png" class="rounded mx-auto mb-3"
                             alt="Mohammed Nasif K">
-                        <h5 class="fw-bold mb-1">Mohammed Nasif K</h5>
+                        <h5 class="fw-bold mb-1">Mohammed <span class="fw-bold ">Nasif K</span></h5>
                         <small class="text-muted d-block mb-1">(Founder & Managing Director)</small>
 
                     </div>
@@ -284,10 +284,10 @@
                 <!-- Team Member 2 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm text-center p-3 h-100 rounded-bottom-5">
-                        <img src="/assets/img/team/team_22_01_13_03_25_04.jpeg" class="rounded mx-auto mb-3"
+                        <img src="/assets/img/team/shahul.png" class="rounded mx-auto mb-3"
                             alt="Shahul Hameed">
-                        <h5 class="fw-bold mb-1">Shahul Hameed</h5>
-                        <small class="text-muted d-block mb-1">(Founder & Managing Director)</small>
+                        <h5 class="mb-1">Shahul <span class="fw-bold ">Hameed</span></h5>
+                        <small class="text-muted d-block mb-1">(Co-Founder & Director)</small>
 
                     </div>
                 </div>
@@ -295,21 +295,20 @@
                 <!-- Team Member 3 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm text-center p-3 h-100 rounded-bottom-5">
-                        <img src="/assets/img/team/team_22_01_13_03_24_30.png" class="rounded mx-auto mb-3"
+                        <img src="/assets/img/team/saleem.png" class="rounded mx-auto mb-3"
                             alt="Mohammed Saleeem">
-                        <h5 class="fw-bold mb-1">Mohammed Saleeem</h5>
+                        <h5 class="fw-bold mb-1">Mohammed <span class="fw-bold ">Saleeem</span></h5>
                         <small class="text-muted d-block mb-1">(Co-Founder & Director)</small>
 
                     </div>
                 </div>
 
-
                 <!-- Team Member 4 -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm text-center p-3 h-100 rounded-bottom-5">
-                        <img src="/assets/img/team/team_22_01_13_03_23_58.jpeg" class="rounded mx-auto mb-3"
+                        <img src="/assets/img/team/salih.png" class="rounded mx-auto mb-3"
                             alt="Salih Hyder">
-                        <h5 class="fw-bold mb-1">Salih Hyder</h5>
+                        <h5 class="fw-bold mb-1">Salih <span class="fw-bold ">Hyder</span></h5>
 
                         <small class="text-muted d-block mb-1">(Co-Founder & Director)</small>
 
