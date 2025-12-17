@@ -53,6 +53,7 @@ class DoctorController extends Controller
         }
 
         $doctor->slug = Str::slug($doctor->name);
+        $doctor->save();
 
         $doctor->timeSlots()->delete(); // clear old slots first
 
@@ -73,7 +74,7 @@ class DoctorController extends Controller
             }
         }
 
-        $doctor->save();
+
 
         $doctor->doctor_department()->sync($request->input('department_ids', []));
 
@@ -155,7 +156,7 @@ class DoctorController extends Controller
         return redirect()->route('admin.doctors.index')->with('success', 'Doctor deleted successfully.');
     }
 
-     public function getAvailability(Doctor $doctor, $date)
+    public function getAvailability(Doctor $doctor, $date)
     {
         $dayName = strtolower(date('l', strtotime($date))); // monday, tuesday etc.
 
