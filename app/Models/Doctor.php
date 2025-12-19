@@ -41,6 +41,18 @@ class Doctor extends Model
         return $this->belongsToMany(Department::class, 'doctor_departments', 'doctor_id', 'department_id');
     }
 
+    // App\Models\Doctor.php
+    public function departments()
+    {
+        return $this->belongsToMany(
+            Department::class,
+            'doctor_departments',
+            'doctor_id',
+            'department_id'
+        );
+    }
+
+
     public function getDepartmentsAttribute()
     {
         return $this->doctor_department ? $this->doctor_department->pluck('name')->toArray() : [];

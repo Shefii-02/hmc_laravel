@@ -9,7 +9,7 @@ class Department extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['company_id', 'name', 'description', 'main_image', 'order', 'thumb_image', 'is_active','slug'];
+    protected $fillable = ['company_id', 'name', 'description', 'main_image', 'order', 'thumb_image', 'is_active', 'slug'];
 
     public function company()
     {
@@ -39,8 +39,14 @@ class Department extends Model
             : asset('images/default-department.jpg');
     }
 
+    // App\Models\Department.php
     public function doctors()
     {
-        return $this->belongsToMany(Doctor::class);
+        return $this->belongsToMany(
+            Doctor::class,
+            'doctor_departments',
+            'department_id',
+            'doctor_id'
+        );
     }
 }
