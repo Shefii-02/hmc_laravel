@@ -209,9 +209,9 @@
             background: rgb(60 139 112 / 7%);
             /* darken for contrast */
         /* backdrop-filter: blur(6px); */
-        -webkit-backdrop-filter: blur(6px);
-        z-index: 1;
-        }
+        /* -webkit-backdrop-filter: blur(6px);
+        z-index: 1; */
+        /* } */
 
         */
 
