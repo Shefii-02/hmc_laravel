@@ -193,7 +193,7 @@
         .bg-emergency {
             position: relative;
             padding: 200px 0;
-            background-image: url('/assets/images/hayath-emergency.webp');
+            background-image: url('/assets/images/hayath-emergency-main.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -283,7 +283,7 @@
         .bg-emergency-2 {
             position: relative;
             padding: 50px 0;
-            background-image: url('/assets/images/hayath-emergency.webp');
+            background-image: url('/assets/images/hayath-emergency-footer.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
