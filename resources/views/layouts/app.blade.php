@@ -192,7 +192,7 @@
 
         .bg-emergency {
             position: relative;
-            padding: 200px 0;
+            padding: 100px 0;
             background-image: url('/assets/images/hayath-emergency-main.jpg');
             background-size: cover;
             background-repeat: no-repeat;
